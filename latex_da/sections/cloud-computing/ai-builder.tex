@@ -1,0 +1,45 @@
+Basierend auf Azure AI Cognitive Service ist AI Builder ein Tool zum Erstellen und Trainieren von Modellen ohne das Schreiben von Code. Die Integration mit Power Apps und Power Automate ist eine integrierte Funktion, die den Nutzern die Möglichkeit bietet, bestehende Geschäftsanwendungen zu erweitern und zu verbessern.
+
+Microsoft Power Plattform ist eine Low-Code-Plattform, die es Unternehmen ermöglicht, Geschäftsprozesse zu automatisieren. Power Plattform umfasst drei Hauptprodukte: Power BI, PowerApps und Flow.
+
+Der AI Builder ermöglicht es auf einfache Weise Prozesse automatisieren und Ergebnisse vorhersagen. AI Builder ist eine schlüsselfertige Lösung, die die Leistungsfähigkeit der künstlichen Intelligenz von Microsoft mit wenigen Mausklicks nutzbar macht. Mit dem AI Builder können Sie Ihren Anwendungen Intelligenz hinzufügen, auch wenn Sie keine Programmier- oder Data-Science-Kenntnisse haben.
+
+\subsection{Benutzerdefinierte Modelle}
+
+Der erste Schritt bei der Erstellung eines KI-Modells besteht darin, festzustellen, ob für meinen Anwendungsfall bereits vorgefertigte oder bereits trainierte Modell vorhanden sind. Falls dies nicht der Fall ist, stehen in der Benutzeroberfläche des AI Builders fünf Modelle zur Verfügung:
+
+\begin{enumerate}
+    \item Category Classification
+    \item Entity Extraction
+    \item Form Processing
+    \item Object Detection
+    \item Prediction
+\end{enumerate}
+
+\subsubsection{Category Classification}
+
+Bei diesem Ansatz wird ein Modell verwendet bzw. trainiert um große Mengen an Textdaten, Dokumenten oder sonstige Textdatenquellen zu analysieren und den Text zu klassifizieren. Besonders hilfreich ist dieses Modell, um Spam zu identifizieren und entsprechend zu behandeln. Zuerst muss das Modell mit Trainingsdaten trainiert werden, mit dem Text und den Tags in zwei Spalten in der gleichen Tabelle. Das Zeichenlimit für jede Textprobe liegt bei fünftausend Zeichen.
+
+Die Analysen, die dieses Modell liefert, können auch als Input für andere KI-Lösungen verwendet werden. Wichtig hierbei ist das für jeden Tag mindestens zehn Textproben bereitgestellt werden, ansonsten sinkt die Wahrscheinlichkeit ein genaues Ergebnis zu erzielen.
+
+\subsubsection{Entity Extraction}
+
+Hier werden wichtige Textelemente identifiziert und den definierten Kategorien zugeordnet. Ergebnisse werden dabei, entsprechend den Anforderungen, standardisiert und strukturiert. Auch hier werden wieder mindestens 10 Datensätze benötigt, um mit dem Trainieren des Modells zu beginnen. Das Modell ist anpassbar, indem man neue Entitätstypen mit wenigen Trainingsdaten erstellen oder bestehende Entitätstypen modifizieren. Genauer gesagt verfügt der Ai Builder über vorgefertigte Trainingsdaten, die zur Erweiterung der eigenen Trainingsdaten verwendet werden können.
+
+\subsubsection{Form Processing}
+
+Die Formularverarbeitung ist das KI-Modell, das Daten aus Formularen, auch aus Papier- oder PDF-Dokumenten, extrahiert. Bei diesem Modell benötigt man fünf Beispielformulare, um es zu trainieren, die Felder eines Dokuments zuzuordnen und eine funktionierende Anwendung zu erstellen. Diese Lösung wird verwendet um Rechnungen, Aufträgen, Reklamationen, etc. zu erfassen. Es ist zum Beispiel möglich, das Modell zu trainieren und einen Ablauf zu erstellen, der automatisch Schlüsselinformationen aus Bestelldokumenten erkennt und extrahiert und anschließend eine E-Mail an den zuständigen Mitarbeiter sendet.
+
+Die empfohlenen Formate für Eingabedaten sind .jpg, .png und .pdf. Die Gesamtgröße der, für das Training verwendeten, Dokumente darf insgesamt 50 MB nicht überschreiten.
+
+\subsubsection{Object Detection}
+
+Die Objekterkennung wird dazu verwendet, um Objekte auf Fotos oder Videos zu erkennen. Dieses Modell kann verwendet werden, um Produkte oder Maschinen und dazu Informationen zu erhalten. Ebenfalls hilfreich kann dieses Modell bei mobilen Anwendungen sein. Zum Beispiel ein Mitarbeiter will den Bestand eines Produkts überprüfen oder benötigt Einsicht in eine dazu gehörige Betriebsanleitung.
+
+Für das Training werden mindestens 15 Fotos von jedem Objekt benötigt; je mehr Fotos, desto genauer ist das Modell. Die Fotos sollten eine Vielzahl von Hintergründen mit den abgebildeten Objekten in unterschiedlichen Entfernungen und Winkeln enthalten, um die korrekte Identifizierung der Objekte zu verbessern. Es ist zu beachten, dass die Trainingsbilder im .jpg-, .bmp- oder png-Format vorliegen müssen und insgesamt 6 MB pro Training nicht überschreiten dürfen, wobei die Fotos nicht kleiner als 256 x 256 Pixel sein dürfen. Beständigere Ergebnisse sind möglich, wenn das Verhältnis zwischen den Objekten mit den wenigsten und den meisten Bildern mindestens 1:2 beträgt. Anders ausgedrückt: Wenn 500 die höchste Anzahl von Trainingsbildern für ein Objekt ist, dann muss es mindestens 250 Trainingsbilder für das Objekt mit den wenigsten Bildern geben.
+
+\subsubsection{Prediction}
+
+Bei diesem Modell werden große Mengen an alten Daten analysiert, um darin Muster zu erkennen. Dieses „Wissen“ wird dann verwendet, um diese Muster in neuen Datensätzen zu erkennen und Vorhersagen zu treffen. Diese Mechanismen können Muster aufdecken, die binäre Fragen (ja/nein), Fragen mit mehreren Antworten (eine Liste von Ergebnissen) oder Fragen, die mit einer Zahl beantwortet werden.
+
+Zum Trainieren des Modells werden mindestens 10 Zeilen mit historischen Werten für jede Klasse der Datenspalte "Label" benötigt. Die Mindestanzahl der Zeilen für das Training beträgt 50, aber ein Minimum von 1.000 Zeilen gewährleistet die besten Ergebnisse.

@@ -1,0 +1,10 @@
+<mat-form-field appearance="outline">
+  <ngx-mat-file-input [formControl]="filePath" (ngModelChange)="temp()">
+  </ngx-mat-file-input>
+</mat-form-field>
+<canvas #myCanvas></canvas>
+<pdf-viewer [src]="url"
+            [render-text]="true"
+            [original-size]="false"
+            style="width: 400px; height: 500px"
+></pdf-viewer>
