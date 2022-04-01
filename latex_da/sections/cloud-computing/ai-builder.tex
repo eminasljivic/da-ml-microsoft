@@ -1,8 +1,6 @@
 Basierend auf Azure AI Cognitive Service ist AI Builder ein Tool zum Erstellen und Trainieren von Modellen ohne das Schreiben von Code. Die Integration mit Power Apps und Power Automate ist eine integrierte Funktion, die den Nutzern die Möglichkeit bietet, bestehende Geschäftsanwendungen zu erweitern und zu verbessern.
-
 Microsoft Power Plattform ist eine Low-Code-Plattform, die es Unternehmen ermöglicht, Geschäftsprozesse zu automatisieren. Power Plattform umfasst drei Hauptprodukte: Power BI, PowerApps und Flow.
-
-Der AI Builder ermöglicht es auf einfache Weise Prozesse automatisieren und Ergebnisse vorhersagen. AI Builder ist eine schlüsselfertige Lösung, die die Leistungsfähigkeit der künstlichen Intelligenz von Microsoft mit wenigen Mausklicks nutzbar macht. Mit dem AI Builder können Sie Ihren Anwendungen Intelligenz hinzufügen, auch wenn Sie keine Programmier- oder Data-Science-Kenntnisse haben.
+Der AI Builder ermöglicht es auf einfache Weise Prozesse zu automatisieren und Ergebnisse vorherzusagen. AI Builder ist eine schlüsselfertige Lösung, die die Leistungsfähigkeit der künstlichen Intelligenz von Microsoft mit wenigen Mausklicks nutzbar macht. Mit dem AI Builder können Sie Ihren Anwendungen Intelligenz hinzufügen, auch wenn Sie keine Programmier- oder Data-Science-Kenntnisse haben.
 
 \subsection{Benutzerdefinierte Modelle}
 
@@ -15,6 +13,13 @@ Der erste Schritt bei der Erstellung eines KI-Modells besteht darin, festzustell
     \item Object Detection
     \item Prediction
 \end{enumerate}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.9]{sections/cloud-computing/images/ai-builder-models.png}
+    \caption{AI-Builder Modelle}
+    \label{fig:kimldl-comparison}
+\end{figure}
 
 \subsubsection{Category Classification}
 
@@ -43,3 +48,60 @@ Für das Training werden mindestens 15 Fotos von jedem Objekt benötigt; je mehr
 Bei diesem Modell werden große Mengen an alten Daten analysiert, um darin Muster zu erkennen. Dieses „Wissen“ wird dann verwendet, um diese Muster in neuen Datensätzen zu erkennen und Vorhersagen zu treffen. Diese Mechanismen können Muster aufdecken, die binäre Fragen (ja/nein), Fragen mit mehreren Antworten (eine Liste von Ergebnissen) oder Fragen, die mit einer Zahl beantwortet werden.
 
 Zum Trainieren des Modells werden mindestens 10 Zeilen mit historischen Werten für jede Klasse der Datenspalte "Label" benötigt. Die Mindestanzahl der Zeilen für das Training beträgt 50, aber ein Minimum von 1.000 Zeilen gewährleistet die besten Ergebnisse.
+
+\subsection{AI-Builder in der Praxis}
+
+Um den AI-Builder für den gewünschten Use-Case am besten zu nutzen, hat sich das Diplomarbeitsteam dazu entschieden, das Modell des Form Processing zu verwenden. Der gewünschte Use-Case ist, mehrere im Vorhinein definierte Felder aus einer Eingangsrechnung, im PDF, zu extrahieren und anschließend zu markieren. Folgende Schritte sind notwendig, um ein Modell zu erstellen, dass auf spezielle Eingangsrechnungen (Siehe Abbildung \ref{fig:example-invoice-figure}) trainiert ist:
+
+\begin{enumerate}
+    \item Zu extrahierende Felder definieren
+    \item Trainingsdaten bereitstellen
+    \item Trainingsdaten mit Tags versehen
+    \item Modell trainieren und
+    \item Modell veröffentlichen
+\end{enumerate}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.9]{sections/cloud-computing/images/example-invoice.png}
+    \caption{Beispiel Eingansrechnung}
+    \label{fig:example-invoice-figure}
+\end{figure}
+
+Zunächst ist es wichtig zu wissen, welche Felder man aus der ER extrahieren will. In der folgenden Abbildung wird gezeigt welche Felder bei dieser Arbeit ausgewählt wurden. Diese Felder wurden nur zu Veranschaulichung der Fähigkeiten des AI-Builders ausgewählt und nicht zur firmeninternen Nutzung:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.9]{sections/cloud-computing/images/ai-builder-fields.png}
+    \caption{AI-Builder Felder}
+    \label{fig:ai-builder-fields-figure}
+\end{figure}
+
+\begin{enumerate}
+    \item Company Name
+    \item Company Address
+    \item Invoice Id
+    \item Invoice Date
+    \item Total Value
+    \item Items (Mehrseitige Tabelle)
+\end{enumerate}
+
+\textbf{Items (Mehrseitige Tabelle)}: Diese Tabelle bietet ein experimentelles Feature, um tabellarische Daten aus einer, in der Rechnung vorhandenen Tabelle zu entnehmen, auch wenn sich die Tabelle über mehrere Seiten zieht. Diese Tabelle enthält wiederrum eigene Daten wie:
+
+\begin{enumerate}
+    \item Description
+    \item Qty (Quantity)
+    \item Unit
+    \item Unit Price
+    \item Total Price
+\end{enumerate}
+
+Um Daten für das Trainieren des Modells bereitzustellen, ist es notwendig mindestens fünf Beispieldokumente hochzuladen. Nichtsdestotrotz ist für eine hohe Genauigkeit des Modells, sprich wie sicher sich der Algorithmus ist, dass er das richtige Feld markiert hat, von Vorteil mehrere ähnliche Dokumente bereitzustellen. 
+Um dem Algorithmus anzutrainieren, welche Felder in dem Dokument vorhanden sind, ist es relevant die Daten in dem Dokument händisch zu markieren und die zuvor definierten Informationsfelder zu zuweisen. Siehe folgende Abbildung (\ref{fig:ai-builder-tagging-figure})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.9]{sections/cloud-computing/images/ai-builder-tagging.png}
+    \caption{AI-Builder Felder Tagging}
+    \label{fig:ai-builder-tagging-figure}
+\end{figure}
