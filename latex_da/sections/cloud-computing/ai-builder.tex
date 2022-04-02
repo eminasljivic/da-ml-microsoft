@@ -88,6 +88,7 @@ Zunächst ist es wichtig zu wissen, welche Felder man aus der ER extrahieren wil
 
 \textbf{Items (Mehrseitige Tabelle)}: Diese Tabelle bietet ein experimentelles Feature, um tabellarische Daten aus einer, in der Rechnung vorhandenen Tabelle zu entnehmen, auch wenn sich die Tabelle über mehrere Seiten zieht. Diese Tabelle enthält wiederrum eigene Daten wie:
 
+\label{enum:InvoiceItemsAttributs}
 \begin{enumerate}
     \item Description
     \item Qty (Quantity)
@@ -95,6 +96,7 @@ Zunächst ist es wichtig zu wissen, welche Felder man aus der ER extrahieren wil
     \item Unit Price
     \item Total Price
 \end{enumerate}
+
 
 Um Daten für das Trainieren des Modells bereitzustellen, ist es notwendig mindestens fünf Beispieldokumente hochzuladen. Nichtsdestotrotz ist für eine hohe Genauigkeit des Modells, sprich wie sicher sich der Algorithmus ist, dass er das richtige Feld markiert hat, von Vorteil mehrere ähnliche Dokumente bereitzustellen. 
 Um dem Algorithmus anzutrainieren, welche Felder in dem Dokument vorhanden sind, ist es relevant die Daten in dem Dokument händisch zu markieren und die zuvor definierten Informationsfelder zu zuweisen. Siehe folgende Abbildung (\ref{fig:ai-builder-tagging-figure})

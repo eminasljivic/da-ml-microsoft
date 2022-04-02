@@ -19,4 +19,40 @@ Ein Instant Flow wird mit dem Klicken eines Buttons gestartet. Dieser Flow läuf
 Dieser Flow wird nach einem Zeitplan automatisiert und zu einem gewünschten Datum oder beliebiger Uhrzeit ausgeführt werden. Dieser Ablauf ist hilfreich, um zum Beispiel jeden Tag zur selben Uhrzeit einen Daten-Upload zu machen.
 
 \subsubsection{Cloud Flow in der Praxis}
-TODO!!!!!
+Die Diplomanden dieser Arbeit entschieden sich für einen Automated Flow, da dieser die gewünschte Funktion erfüllt. Wie bereits erwähnt, ist der Automated Flow ein Event-basierter Flow und wird durch das Erhalten einer E-Mail ausgelöst (Siehe Abbildung \ref{fig:flow-trigger}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.9]{sections/cloud-computing/images/power-automate-flow/trigger.png}
+    \caption{Power Automate Flow Trigger}
+    \label{fig:flow-trigger}
+\end{figure}
+
+Um alle Anlagen der E-Mail zu verarbeiten, wird eine Schleife um die nächsten Schritte gesetzt. Da es erlaubt ist mehrere Eingangsrechnungen in der E-Mail anzuhängen muss jeder Anhang einzeln verarveitet werden. Das zuvor definierte AI-Builder Modell extrahiert die notwendigen Information aus dem Dokument (Siehe Abbildung \ref{fig:ai-model-in-use}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{sections/cloud-computing/images/power-automate-flow/ai-model-in-use.png}
+    \caption{Verarbeitung des Dokuments}
+    \label{fig:ai-model-in-use}
+\end{figure}
+
+Um die extrahierten Daten zu persistieren, wurde eine Dynamcis CRM Testumgebung aufgesetzt. Es wurden zwei Entitäten, Invoice und Invoice Items erstellt (\ref{fig:class-diagram}). Da die Entität Invoice Items von der Entität Invoice abhängig ist, muss die die Entität Invoice Items eigens gespeichert werden (Siehe Abbildung ... ).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{sections/cloud-computing/images/power-automate-flow/cld.png}
+    \caption{Klassendiagram Invoice}
+    \label{fig:class-diagram}
+\end{figure}
+
+Um die Richtigkeit des Datenmodells zu sichern muss die Reihenfolge der Persistierung beachtet werden und alle Invoice Items abhängig von der dazugehörigen Invoice gemacht werden \ref{fig:persistence-entities}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.9]{sections/cloud-computing/images/power-automate-flow/insert2-dynamics-crm.png}
+    \caption{Persistierung der Entitäten}
+    \label{fig:persistence-entities}
+\end{figure}
+
+\ref{enum:InvoiceItemsAttributs}
