@@ -30,14 +30,17 @@ Die Diplomanden dieser Arbeit entschieden sich für einen Automated Flow, da die
 
 Um alle Anlagen der E-Mail zu verarbeiten, wird eine Schleife um die nächsten Schritte gesetzt. Da es erlaubt ist mehrere Eingangsrechnungen in der E-Mail anzuhängen muss jeder Anhang einzeln verarveitet werden. Das zuvor definierte AI-Builder Modell extrahiert die notwendigen Information aus dem Dokument (Siehe Abbildung \ref{fig:ai-model-in-use}).
 
-\begin{figure}[H]
+\begin{figure}[H]q
     \centering
     \includegraphics[scale=0.8]{sections/cloud-computing/images/power-automate-flow/ai-model-in-use.png}
     \caption{Verarbeitung des Dokuments}
     \label{fig:ai-model-in-use}
 \end{figure}
 
-Um die extrahierten Daten zu persistieren, wurde eine Dynamcis CRM Testumgebung aufgesetzt. Es wurden zwei Entitäten, Invoice und Invoice Items erstellt (\ref{fig:class-diagram}). Da die Entität Invoice Items von der Entität Invoice abhängig ist, muss die die Entität Invoice Items eigens gespeichert werden (Siehe Abbildung ... ).
+Um die extrahierten Daten zu persistieren, wurde eine Dynamcis CRM Testumgebung aufgesetzt, um einen ecten Geschäftsfall zu simulieren. Es wurden zwei Entitäten, Invoice und Invoice Items erstellt (\ref{fig:class-diagram}). Da die Entität Invoice Items von der Entität Invoice abhängig ist, muss die die Entität Invoice Items eigens gespeichert werden.
+
+\textbf{Kurzer Exkurs; Microsoft Dynamics CRM:}
+\input{sections/cloud-computing/microsoft-dynamics-365.tex}
 
 \begin{figure}[h]
     \centering
