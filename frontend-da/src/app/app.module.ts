@@ -8,6 +8,8 @@ import {NgxMatFileInputModule} from "@angular-material-components/file-input";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     NgxMatFileInputModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonToggleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
