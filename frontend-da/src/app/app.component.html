@@ -1,15 +1,11 @@
-<div>
-
-  <mat-form-field  appearance="outline">
-    <ngx-mat-file-input #file [formControl]="filePath" (ngModelChange)="temp()">
-    </ngx-mat-file-input>
-  </mat-form-field>
+<mat-toolbar color="primary">
+  <span>Machine Learning In Microsoft Azure - Ein Vergleich</span>
+  <span class="spacer"></span>
+  <button mat-button [routerLink]="'/custom'">Custom</button>
+</mat-toolbar>
+<div style="height: 100%; margin: 5px">
+  <router-outlet></router-outlet>
 </div>
-<div style="height: 100%">
-  <pdf-viewer #pdfViewer id="pdfViewerID" [src]="url" class="pdf-viewer-class" [original-size]="true" style="height: 80%" [autoresize]="true">
-  </pdf-viewer>
-  <canvas id="tip" width=150 height=25></canvas>
-</div>
-<div>
-  <mat-button-toggle (click)="send()">Send</mat-button-toggle>
+<div id="loader" *ngIf="dataService.loading">
+  <mat-spinner></mat-spinner>
 </div>

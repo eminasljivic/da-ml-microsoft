@@ -1,0 +1,25 @@
+#content{
+  height: 100%;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#main{
+  flex: auto;
+  display: flex;
+  flex-direction: row;
+
+}
+
+#main *{
+  flex: 1;
+}
+
+#picker, #picker *{
+  width: 100%;
+}
+
+#selector {
+  height: 50px;
+}

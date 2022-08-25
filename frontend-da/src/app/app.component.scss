@@ -1,7 +1,16 @@
-#tip {
-  background-color: white;
-  border: 1px solid blue;
+
+#loader{
+  background: rgb(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  left: -200px;
-  top: 100px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }
