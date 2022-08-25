@@ -13,6 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { CustomAppComponent } from './custom-app/custom-app.component';
+import { ComparisonComponent } from './comparison/comparison.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 
