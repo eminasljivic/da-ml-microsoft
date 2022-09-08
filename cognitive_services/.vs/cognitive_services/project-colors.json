@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e51fd038-b973-4ab2-acc7-9c49827dc61e": {
+      "ProjectGuid": "e51fd038-b973-4ab2-acc7-9c49827dc61e",
+      "DisplayName": "cognitive_services",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

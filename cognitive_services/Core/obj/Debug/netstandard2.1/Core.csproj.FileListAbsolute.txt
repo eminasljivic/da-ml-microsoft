@@ -1,0 +1,5 @@
+D:\PR1\5.Jg\DA\da-ml-microsoft\cognitive_services\Core\obj\Debug\netstandard2.1\Core.csproj.AssemblyReference.cache
+D:\PR1\5.Jg\DA\da-ml-microsoft\cognitive_services\Core\obj\Debug\netstandard2.1\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\PR1\5.Jg\DA\da-ml-microsoft\cognitive_services\Core\obj\Debug\netstandard2.1\Core.AssemblyInfoInputs.cache
+D:\PR1\5.Jg\DA\da-ml-microsoft\cognitive_services\Core\obj\Debug\netstandard2.1\Core.AssemblyInfo.cs
+D:\PR1\5.Jg\DA\da-ml-microsoft\cognitive_services\Core\obj\Debug\netstandard2.1\Core.csproj.CoreCompileInputs.cache
