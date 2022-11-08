@@ -1,0 +1,76 @@
+\subsection{Verwendete Technologien}
+
+\subsubsection{Angular}
+
+Angular ist ein auf TypeScript basierendes Frontend-Framework, welches neben React, Express und Vue.js das beliebteste Framework auf dem Markt ist. \cite{SFT} Dabei wird Angular sowohl für kleine Projekte in der Schule, als auch große Projekte in weltbekannten Plattformen verwendet.
+
+\paragraph*{Components}
+
+Das Frontend wird in Komponenten (Components) aufgeteilt und stellen unterschiedliche Elemente der Darstellung dar, welche auch mehrmals untereinander verwendet werden können, um repetitiven Code zu verhindern.
+
+Jedes Component besteht aus
+
+\begin{itemize}
+    \item einer Component-Klasse (TypeScript-File),
+    \item einem HTML-Template und
+    \item einem Stylesheet (CSS/SCSS-File).
+\end{itemize}
+
+\begin{lstlisting}[language=TypeScript,caption={Beispiel eines Angular-Components}]
+    @Component({
+        selector: 'custom-app',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.scss']
+    })
+    export class AppComponent {
+
+    title: string = "Meine eigene App!";
+
+    items: any[] = [
+        {
+            "text": "Das ist meine"
+        },
+        {
+            "text": "erste eigene Angular-App."
+        }
+    ];
+
+    // Restlicher Code
+    }
+\end{lstlisting}
+
+Wie man im obigen Beispiel sieht müssen bei einem Component Felder gesetzt werden, damit die unterschiedlichen Files miteinander assoziierbar sind:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|p{0.5\linewidth}|}
+        \hline
+        selector             & verpflichtend & Gibt den HTML-Tag an, mit welchem man das Component in anderen aufrufen kann (Bsp.: <app-custom-app></app-custom-app>)       \\ \hline
+        template/templateUrl & verpflichtend & Gibt entweder direkt den HTML-Code (template) an oder referenziert zu einem HTML-File (templateUrl)                          \\ \hline
+        styles/styleUrls     & freiwillig    & Gibt entweder direkt einen oder mehrere CSS-Codes (styles) an oder referenziert zu einem oder mehreren CSS-Files (styleUrls) \\ \hline
+    \end{tabular}
+\end{table}
+
+\paragraph{HTML-Templates}
+
+Neben der generellen Struktur des Frontends, kann ein HTML-Template auch Daten aus dem Component anzeigen.
+
+\begin{lstlisting}[language=HTML, title="Beispiel für ein HTML-Template"]
+    <h1>{{title}}</h1>
+
+    <ul>
+        <li *ngFor="let item of items">{{item.text}}</li>
+    </ul>
+\end{lstlisting}
+
+Mithilfe von unterschiedlichen Instuktionen
+
+
+\paragraph*{CLI}
+
+\subsubsection{HTML}
+\subsubsection{CSS/SCCS}
+
+
+
+\subsubsection{TypeScript}

@@ -51,27 +51,27 @@
 \pagestyle{scrheadings}
 
 \begin{spacing}{1}
-\chapter{Machine Learning}\label{chapter:introduction}
+	\chapter{Machine Learning - Theorie}\label{chapter:introduction}
 \end{spacing}
 \input{./sections/machine-learning/machine-learning}
 
 \begin{spacing}{1}
-\chapter{Cloud Computing}
+	\chapter{Cloud Computing}
 \end{spacing}
 \input{./sections/cloud-computing/cloud-computing}
 
 \begin{spacing}{1}
-\chapter{Ausgangslage}\label{chapter:tech}
+	\chapter{Ausgangslage}\label{chapter:tech}
 \end{spacing}
 \input{./sections/use-case}
 
 \begin{spacing}{1}
-\chapter{Umsetzung}\label{chapter:implementation}
+	\chapter{Umsetzung}\label{chapter:implementation}
 \end{spacing}
-\input{./sections/comparison}
+\input{./sections/implementation/implementation.tex}
 
 \begin{spacing}{1}
-\chapter{Gegenüberstellung und Conclusio}
+	\chapter{Gegenüberstellung und Conclusio}
 \end{spacing}
 \input{./sections/comparison}
 
@@ -83,9 +83,9 @@
 \glsnogroupskiptrue
 \printglossary[title=Glossar,toctitle=Glossar] %,style=long]
 \spacing{1}{
-%\bibliographystyle{IEEEtran}
-\bibliographystyle{ieeetrande}
-\bibliography{bib}
+	%\bibliographystyle{IEEEtran}
+	\bibliographystyle{ieeetrande}
+	\bibliography{bib}
 }
 \listoffigures
 \listoftables
