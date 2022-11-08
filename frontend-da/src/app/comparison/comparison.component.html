@@ -1,0 +1,21 @@
+<div id="content">
+  <div id="picker">
+    <mat-form-field appearance="outline">
+      <ngx-mat-file-input #file id="file" [formControl]="filePath" (ngModelChange)="getInvoice()">
+      </ngx-mat-file-input>
+    </mat-form-field>
+  </div>
+  <div id="main">
+    <pdf-viewer #pdfViewer id="pdfViewerID" [src]="url" class="pdf-viewer-class" [original-size]="true"
+                [autoresize]="true">
+    </pdf-viewer>
+    <div id="fields"></div>
+  </div>
+  <div id="selector">
+    <mat-button-toggle (click)="send()">Send</mat-button-toggle>
+  </div>
+  <div id="selector">
+    <mat-button-toggle (click)="test()">test</mat-button-toggle>
+  </div>
+  <pre>obtained data: {{ data | json }}</pre>
+</div>
