@@ -10,6 +10,6 @@ namespace Core.Entities
     {
         public string? FieldName { get; set; }
         public string? FieldValue { get; set; }
-        public float? FieldConfidence { get; set; }
+        public string? FieldConfidence { get; set; }
     }
 }

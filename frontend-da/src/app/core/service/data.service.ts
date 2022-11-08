@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -6,5 +7,9 @@ import { Injectable } from '@angular/core';
 export class DataService {
   loading = false;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getAllMetrics(){
+
+  }
 }

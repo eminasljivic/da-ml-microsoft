@@ -13,6 +13,8 @@ namespace Core
 {
     public class Invoice
     {
+        public Guid Id { get; set; }
+        public string? Name { get; set; }
         public string? CompanyAddress { get; set; }
         public string? CompanyName { get; set; }
         public string? InvoiceId { get; set; }

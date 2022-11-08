@@ -16,8 +16,8 @@ namespace cognitive_services
 {
     public class InvoiceRecognizer
     {
-        private static readonly string endpoint = "";
-        private static readonly string key = "";
+        private static readonly string endpoint = "https://da-formularerkennung.cognitiveservices.azure.com/";
+        private static readonly string key = "f0e26ae588d64e3fa8433bc776e0bc52";
         private static AzureKeyCredential credential = new AzureKeyCredential(key);
         private DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
         
@@ -46,7 +46,7 @@ namespace cognitive_services
                     {
                         if (companyNameField.ValueType == DocumentFieldType.String)
                         {
-                            invoice.CompanyName = companyNameField.AsString();
+                            invoice.CompanyName = companyNameField.Content ?? "null";
                             invoice.Confidences.Add("CompanyName", companyNameField.Confidence);
                             //dto.boundings.Add("CompanyName", companyNameField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                         }
@@ -56,7 +56,7 @@ namespace cognitive_services
                     {
                         if (companyAddressField.ValueType == DocumentFieldType.String)
                         {
-                            invoice.CompanyAddress = companyAddressField.AsString();
+                            invoice.CompanyAddress = companyAddressField.Content ?? "null";
                             //dto.boundings.Add("CompanyAddress", companyAddressField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                             invoice.Confidences.Add("CompanyAddress", companyAddressField.Confidence);
                         }
@@ -66,7 +66,7 @@ namespace cognitive_services
                     {
                         if (invoiceIdField.ValueType == DocumentFieldType.String)
                         {
-                            invoice.InvoiceId = invoiceIdField.AsString();
+                            invoice.InvoiceId = invoiceIdField.Content ?? "null";
                             invoice.Confidences.Add("InvoiceId", invoiceIdField.Confidence);
                             //dto.boundings.Add("InvoiceId", invoiceIdField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                         }
@@ -75,7 +75,7 @@ namespace cognitive_services
                     {
                         if (invoiceDateField.ValueType == DocumentFieldType.String)
                         {
-                            invoice.InvoiceDate = invoiceDateField.AsString();
+                            invoice.InvoiceDate = invoiceDateField.Content ?? "null";
                             invoice.Confidences.Add("InvoiceDate", companyNameField.Confidence);
                             //dto.boundings.Add("InvoiceDate", invoiceDateField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                         }
@@ -85,7 +85,7 @@ namespace cognitive_services
                     {
                         if (totalValueField.ValueType == DocumentFieldType.String)
                         {
-                            invoice.TotalValue = totalValueField.AsString();
+                            invoice.TotalValue = totalValueField.Content ?? "null";
                             invoice.Confidences.Add("TotalValue", totalValueField.Confidence);
                             //dto.boundings.Add("TotalValue", totalValueField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                         }
@@ -107,8 +107,8 @@ namespace cognitive_services
                                     {
                                         if (itemDescriptionField.ValueType == DocumentFieldType.String)
                                         {
-                                            item.Description = itemDescriptionField.AsString();
-                                            item.Confidences.Add("Description", itemDescriptionField.Confidence);
+                                            item.Description = itemDescriptionField.Content ?? "null";
+                                            item.Confidences.Add("Description", 0);
                                             //dto.boundings.Add("ItemDescription", itemDescriptionField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                                         }
                                     }
@@ -117,8 +117,8 @@ namespace cognitive_services
                                     {
                                         if (QuantityField.ValueType == DocumentFieldType.String)
                                         {
-                                            item.Quantity = QuantityField.AsString();
-                                            item.Confidences.Add("Quantity", QuantityField.Confidence);
+                                            item.Quantity = QuantityField.Content ?? "null";
+                                            item.Confidences.Add("Quantity", 0);
                                             //dto.boundings.Add("ItemQuantity", QuantityField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                                         }
                                     }
@@ -127,8 +127,8 @@ namespace cognitive_services
                                     {
                                         if (UnitField.ValueType == DocumentFieldType.String)
                                         {
-                                            item.Unit = UnitField.AsString();
-                                            item.Confidences.Add("Unit", UnitField.Confidence);
+                                            item.Unit = UnitField.Content ?? "null";
+                                            item.Confidences.Add("Unit", 0);
                                             //dto.boundings.Add("ItemUnit", UnitField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                                         }
                                     }
@@ -137,8 +137,8 @@ namespace cognitive_services
                                     {
                                         if (UnitPriceField.ValueType == DocumentFieldType.String)
                                         {
-                                            item.UnitPrice = UnitPriceField.AsString();
-                                            item.Confidences.Add("UnitPrice", UnitPriceField.Confidence);
+                                            item.UnitPrice = UnitPriceField.Content ?? "null";
+                                            item.Confidences.Add("UnitPrice", 0);
                                             //dto.boundings.Add("ItemUnitPrice", UnitPriceField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                                         }
                                     }
@@ -147,8 +147,8 @@ namespace cognitive_services
                                     {
                                         if (TotalPriceField.ValueType == DocumentFieldType.String)
                                         {
-                                            item.TotalPrice = TotalPriceField.AsString();
-                                            item.Confidences.Add("TotalPrice", TotalPriceField.Confidence);
+                                            item.TotalPrice = TotalPriceField.Content ?? "null";
+                                            item.Confidences.Add("TotalPrice", 0);
                                             //dto.boundings.Add("ItemTotalPrice", TotalPriceField.BoundingRegions.Select(br => br.BoundingPolygon).ToArray());
                                         }
                                     }

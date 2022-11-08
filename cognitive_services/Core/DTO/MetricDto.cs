@@ -9,12 +9,12 @@ namespace Core.DTO
 {
     public class MetricDto
     {
-        public Invoice? Invoice { get; set; }
-        public List<PerformanceMetric?> PerformanceMetrics { get; set; }
-        public MetricDto(Invoice? invoice, List<PerformanceMetric?> performanceMetrics)
+        public Invoice Invoice { get; set; }
+        public PerformanceMetric PerformanceMetric { get; set; }
+        public MetricDto(Invoice invoice, PerformanceMetric performanceMetrics)
         {
             Invoice = invoice;
-            PerformanceMetrics = performanceMetrics;
+            PerformanceMetric = performanceMetrics;
         }
     }
 }

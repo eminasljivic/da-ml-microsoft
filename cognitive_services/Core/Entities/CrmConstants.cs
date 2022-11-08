@@ -14,6 +14,7 @@ namespace Core.Entities
         public static string ENTITY_PERFORMANCELINE = "new_performanceline";
 
         public static string ATTR_INVOICE_COMPANYADDRESS = "new_companyaddress";
+        public static string ATTR_INVOICE_NAME = "new_bezeichnung";
         public static string ATTR_INVOICE_ID = "new_invoiceid";
         public static string ATTR_INVOICE_COMPANYNAME = "new_companyname";
         public static string ATTR_INVOICE_INVOICEDATE = "new_invoicedate";

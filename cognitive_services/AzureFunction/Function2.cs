@@ -47,6 +47,7 @@ namespace AzureFunction
         {
             var invoice = new Entity("new_invoice")
             {
+                ["new_bezeichnung"] = i.Name,
                 ["new_companyname"] = i.Invoice.CompanyName,
                 ["new_companyaddress"] = i.Invoice.CompanyAddress,
                 ["new_invoicenumber"] = i.Invoice.InvoiceId,
@@ -55,20 +56,20 @@ namespace AzureFunction
             };
             var id = await _crm.CreateAsync(invoice);
 
-
+            var count = 1;
             foreach (Item it in i.Invoice.Items)
             {
-                System.Console.WriteLine(it.Description);
                 var item = new Entity("new_item")
                 {
+                    ["new_name"] = $"{i.Name} Item {count}",
                     ["new_description"] = it.Description,
                     ["new_unit"] = it.Unit,
                     ["new_qantity"] = it.Quantity,
                     ["new_unitprice"] = it.UnitPrice,
                     ["new_totalprice"] = it.TotalPrice,
                     ["new_invoiceid"] = new EntityReference("new_invoice", id)
-
                 };
+                count++;
                 await _crm.CreateAsync(item);
             }
 
@@ -79,6 +80,7 @@ namespace AzureFunction
         {
             var measurement = new Entity("new_performancemetric")
             {
+                ["new_name"] = $"{i.Name} PerformanceMetric",
                 ["new_begin"] = i.Begin,
                 ["new_end"] = i.End,
                 ["new_type"] = i.Type,
@@ -87,35 +89,37 @@ namespace AzureFunction
             };
 
             var id = await _crm.CreateAsync(measurement);
-
+            var count = 1;
             foreach (PropertyInfo item in i.Invoice.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
             {
-                if (item.Name != "Items")
+                if (item.Name != "Id" && item.Name != "Items" && item.Name != "Name")
                 {
                     var line = new Entity("new_performanceline")
                     {
+                        ["new_name"] = $"{measurement["new_name"]} Line {count}",
                         ["new_fieldname"] = item.Name,
                         ["new_fieldconfidence"] = i.Invoice.Confidences[item.Name],
                         ["new_fieldvalue"] = item.GetValue(i.Invoice).ToString(),
                         ["new_performancemetricid"] = new EntityReference("new_performancemetric", id)
                     };
+                    count++;
                     await _crm.CreateAsync(line);
                 }
             }
 
             if (i.Invoice.Items != null)
             {
-                var count = 0;
+                count = 0;
                 foreach (var item in i.Invoice.Items)
                 {
                     foreach (PropertyInfo iitem in item.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
                     {
-                        Console.WriteLine(item.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance).Length);
                         var line = new Entity("new_performanceline")
                         {
+                            ["new_name"] = $"{measurement["new_name"]} Line {count+1}",
                             ["new_fieldname"] = iitem.Name,
                             ["new_fieldconfidence"] = i.Invoice.Items[count].Confidences[iitem.Name],
-                            ["new_fieldvalue"] = iitem.GetValue(item).ToString(),
+                            ["new_fieldvalue"] = iitem.GetValue(item) != null? iitem.GetValue(item).ToString() : "",
                             ["new_performancemetricid"] = new EntityReference("new_performancemetric", id)
                         };
 

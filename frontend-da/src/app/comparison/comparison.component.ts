@@ -48,6 +48,7 @@ export class ComparisonComponent{
         this.t1 = Date.now()
 
         var req:any = {
+          name: this.filePath.value.name,
           begin:this.t0,
           end: this.t1,
           duration: this.t1 - this.t0,
@@ -64,9 +65,10 @@ export class ComparisonComponent{
 
   test(){
     this.dataService.loading = true;
-    this.http.post("http://localhost:7019/api/GetMetrics", null).subscribe((metrics: any) => {
-          console.log(metrics);
-          this.dataService.loading = false;
-        });
+    this.http.post("http://localhost:7019/api/GetMetrics/type=all", null).subscribe((metrics: any) => {
+        this.data = metrics
+        this.dataService.loading = false;
+        console.log(this.data);
+    });
   }
 }

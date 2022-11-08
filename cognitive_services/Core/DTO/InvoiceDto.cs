@@ -13,6 +13,7 @@ namespace Core.DTO
 {
     public class InvoiceDto
     {
+        public string? Name { get; set; }
         public string? Begin { get; set; }
         public string? End { get; set; }
         public string? Type { get; set; }
