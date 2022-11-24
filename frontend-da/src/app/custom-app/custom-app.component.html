@@ -17,14 +17,20 @@
     <div id="fields">
       <div style="flex: 1">
         <div *ngIf="selectedInvoice">
-          <div *ngFor="let field of selectedInvoice.fields">
-            <mat-form-field appearance="outline" style="width: 100%">
-              <input matInput [(ngModel)]="field.fieldName">
-            </mat-form-field>
+          <div *ngFor="let field of selectedInvoice.fields; let i = index">
+            <div class="field selectedField" (click)="fieldSelected(field)" [id]="'field'+i">
+              <mat-form-field appearance="outline" style="width: 100%">
+                <input matInput [(ngModel)]="field.fieldContent">
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="width: 100%">
+                <input matInput [(ngModel)]="field.fieldName">
+              </mat-form-field>
+            </div>
+
           </div>
         </div>
       </div>
-      <button mat-raised-button (click)="addField()" color="primary" [disabled]="!selectedBoundingBox">Add new
+      <button mat-raised-button (click)="addField()" color="primary" [disabled]="!(selectedBoundingBox && !selectedBoundingBox.field)">Add new
         field
       </button>
     </div>
@@ -33,7 +39,8 @@
     <button mat-raised-button (click)="prev()" [disabled]="selectedIndex == 0">
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
-    <button mat-raised-button (click)="next()" [disabled]="invoices.length == 0 || selectedIndex + 1 == invoices.length">
+    <button mat-raised-button (click)="next()"
+            [disabled]="invoices.length == 0 || selectedIndex + 1 == invoices.length">
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
   </div>

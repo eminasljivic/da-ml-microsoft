@@ -1,8 +1,8 @@
-import {Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
+import {Component, Renderer2, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {NgxMatFileInputComponent} from '@angular-material-components/file-input/lib/file-input.component';
 import {HttpClient} from '@angular/common/http';
-import {BoundingBox, BoundingBoxState} from '../model/bounding-box';
+import {BoundingBox} from '../model/bounding-box';
 import {DataService} from '../core/service/data.service';
 import {Field} from '../model/field';
 import {Invoice} from "../model/invoice";
@@ -76,7 +76,9 @@ export class CustomAppComponent {
 
   addField() {
     this.addBoundingBoxAvailable = false;
-    this.selectedInvoice.fields.push(new Field(this.selectedBoundingBox!));
+    const newField = new Field(this.selectedBoundingBox!, this.selectedBoundingBox!.text);
+    this.selectedBoundingBox!.field = newField
+    this.selectedInvoice.fields.push(newField);
   }
 
   drawBoxes() {
@@ -92,14 +94,29 @@ export class CustomAppComponent {
     this.renderer.setStyle(box, 'top', Number(boundingBox.box[0][1]) * this.selectedInvoice.factor + 'px');
     this.renderer.setStyle(box, 'left', Number(boundingBox.box[0][0]) * this.selectedInvoice.factor + 'px');
     this.renderer.addClass(box, 'boundingBox');
-    this.renderer.listen(box, 'click', (evt) => this.selectBoundingBox(box, boundingBox));
+    boundingBox.htmlElement = box;
+    this.renderer.listen(box, 'click', (evt) => this.selectBoundingBox(boundingBox));
     this.renderer.appendChild(this.boundingBoxesContainer, box);
   }
 
-  selectBoundingBox(box: any, boundingBox: BoundingBox) {
+  selectBoundingBox(boundingBox: BoundingBox) {
+    this.removeSelectedField();
+
+    if (boundingBox.field) {
+      const htmlElement = document.getElementById('field' + this.selectedInvoice.fields.indexOf(boundingBox.field));
+      this.renderer.addClass(htmlElement, 'selectedField');
+    }
+
     this.boundingBoxesContainer.childNodes.forEach((c: any) => this.renderer.removeClass(c, 'selectedBoundingBox'));
-    this.renderer.addClass(box, 'selectedBoundingBox');
+    this.renderer.addClass(boundingBox.htmlElement, 'selectedBoundingBox');
     this.selectedBoundingBox = boundingBox;
+  }
+
+  removeSelectedField() {
+    for (let i = 0; i < this.selectedInvoice.fields.length; i++) {
+      const htmlElement = document.getElementById('field' + i);
+      this.renderer.removeClass(htmlElement, 'selectedField');
+    }
   }
 
   next() {
@@ -122,5 +139,9 @@ export class CustomAppComponent {
       this.preparePdfViewer();
       this.drawBoxes();
     }, 500);
+  }
+
+  fieldSelected(field: Field) {
+    this.selectBoundingBox(field.boundingBox);
   }
 }
