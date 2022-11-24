@@ -1,10 +1,14 @@
-Basierend auf Azure AI Cognitive Service ist AI Builder ein Tool zum Erstellen und Trainieren von Modellen ohne das Schreiben von Code. Die Integration mit Power Apps und Power Automate ist eine integrierte Funktion, die den Nutzern die Möglichkeit bietet, bestehende Geschäftsanwendungen zu erweitern und zu verbessern.
-Microsoft Power Plattform ist eine Low-Code-Plattform, die es Unternehmen ermöglicht, Geschäftsprozesse zu automatisieren. Power Plattform umfasst drei Hauptprodukte: Power BI, PowerApps und Flow.
-Der AI Builder ermöglicht es auf einfache Weise Prozesse zu automatisieren und Ergebnisse vorherzusagen. AI Builder ist eine schlüsselfertige Lösung, die die Leistungsfähigkeit der künstlichen Intelligenz von Microsoft mit wenigen Mausklicks nutzbar macht. Mit dem AI Builder können Sie Ihren Anwendungen Intelligenz hinzufügen, auch wenn Sie keine Programmier- oder Data-Science-Kenntnisse haben.
+
+
+
+
+Basierend auf Azure AI Cognitive Service ist AI Builder ein Tool, welches zum Erstellen und Trainieren von Modellen, ohne das Schreiben von Code dient. Die Integration mit Power Apps und Power Automate ist eine Funktion, die den Nutzern die Möglichkeit bietet, bestehende Geschäftsanwendungen zu erweitern, und zu verbessern.
+Microsoft Power Plattform ist eine Low-Code-Plattform, die es Unternehmen bewilligt, Geschäftsprozesse zu automatisieren. Power Plattform umfasst drei Hauptprodukte: Power BI, PowerApps und Flow.
+Mit dem AI Builder ist es möglich, auf einfache Weise Prozesse zu automatisieren und Ergebnisse vorherzusagen. AI Builder ist eine schlüsselfertige Lösung, die die Leistungsfähigkeit der künstlichen Intelligenz von Microsoft mit wenigen Mausklicks anwendbar macht. Mit dem AI Builder kann man Anwendungen Intelligenz beifügen, auch wenn Sie keine Programmier- oder Data-Science-Kenntnisse haben.
 
 \subsection{Benutzerdefinierte Modelle}
 
-Der erste Schritt bei der Erstellung eines KI-Modells besteht darin, festzustellen, ob für meinen Anwendungsfall bereits vorgefertigte oder bereits trainierte Modell vorhanden sind. Falls dies nicht der Fall ist, stehen in der Benutzeroberfläche des AI Builders fünf Modelle zur Verfügung:
+Der erste Schritt bei der Erstellung eines KI-Modells besteht darin, festzustellen, ob für den Anwendungsfall bereits vorgefertigte oder bereits trainierte Modell vorhanden sind. Ist dies nicht der Fall, stehen in der Benutzeroberfläche des AI Builders fünf Modelle zur Verfügung:
 
 \begin{enumerate}
     \item Category Classification
@@ -23,35 +27,36 @@ Der erste Schritt bei der Erstellung eines KI-Modells besteht darin, festzustell
 
 \subsubsection{Category Classification}
 
-Bei diesem Ansatz wird ein Modell verwendet bzw. trainiert um große Mengen an Textdaten, Dokumenten oder sonstige Textdatenquellen zu analysieren und den Text zu klassifizieren. Besonders hilfreich ist dieses Modell, um Spam zu identifizieren und entsprechend zu behandeln. Zuerst muss das Modell mit Trainingsdaten trainiert werden, mit dem Text und den Tags in zwei Spalten in der gleichen Tabelle. Das Zeichenlimit für jede Textprobe liegt bei fünftausend Zeichen.
+Bei diesem Ansatz wird ein Modell verwendet beziehungsweise trainiert, um große Mengen an Textdaten, Dokumenten oder sonstige Textdatenquellen zu analysieren, und den Text zu klassifizieren. Besonders hilfreich ist dieses Modell, um Spam zu identifizieren, und entsprechend zu behandeln. Zuerst muss das Modell mit Trainingsdaten trainiert werden. Das Zeichenlimit für jede Textprobe liegt bei fünftausend Zeichen.
 
-Die Analysen, die dieses Modell liefert, können auch als Input für andere KI-Lösungen verwendet werden. Wichtig hierbei ist das für jeden Tag mindestens zehn Textproben bereitgestellt werden, ansonsten sinkt die Wahrscheinlichkeit ein genaues Ergebnis zu erzielen.
+Die Analysen, die dieses Modell liefert, können auch als Input für andere KI-Lösungen verwendet werden. Wichtig hierbei ist, dass für jeden Tag mindestens zehn Textproben bereitgestellt werden, ansonsten sinkt die Wahrscheinlichkeit ein genaues Ergebnis zu erzielen.
 
 \subsubsection{Entity Extraction}
 
-Hier werden wichtige Textelemente identifiziert und den definierten Kategorien zugeordnet. Ergebnisse werden dabei, entsprechend den Anforderungen, standardisiert und strukturiert. Auch hier werden wieder mindestens 10 Datensätze benötigt, um mit dem Trainieren des Modells zu beginnen. Das Modell ist anpassbar, indem man neue Entitätstypen mit wenigen Trainingsdaten erstellen oder bestehende Entitätstypen modifizieren. Genauer gesagt verfügt der Ai Builder über vorgefertigte Trainingsdaten, die zur Erweiterung der eigenen Trainingsdaten verwendet werden können.
+Hier werden wichtige Textelemente identifiziert, ferner den definierten Kategorien zugeordnet. Die Ergebnisse werden dabei, entsprechend den Anforderungen, standardisiert und strukturiert. Auch hier werden wieder mindestens 10 Datensätze benötigt, um mit dem Trainieren des Modells beginnen zu können. Das Modell ist anpassbar, indem man neue Entitätstypen mit wenigen Trainingsdaten erstellt oder bestehende Entitätstypen modifiziert. Der Ai Builder verfügt über vorgefertigte Trainingsdaten, die zur Erweiterung der eigenen Trainingsdaten verwendet werden können.
 
 \subsubsection{Form Processing}
 
-Die Formularverarbeitung ist das KI-Modell, das Daten aus Formularen, auch aus Papier- oder PDF-Dokumenten, extrahiert. Bei diesem Modell benötigt man fünf Beispielformulare, um es zu trainieren, die Felder eines Dokuments zuzuordnen und eine funktionierende Anwendung zu erstellen. Diese Lösung wird verwendet um Rechnungen, Aufträgen, Reklamationen, etc. zu erfassen. Es ist zum Beispiel möglich, das Modell zu trainieren und einen Ablauf zu erstellen, der automatisch Schlüsselinformationen aus Bestelldokumenten erkennt und extrahiert und anschließend eine E-Mail an den zuständigen Mitarbeiter sendet.
+Die Formularverarbeitung ist das KI-Modell, das Daten aus Formularen, auch aus Papier- oder PDF-Dokumenten, extrahiert. Es werden fünf Beispielformluare benötigt, ums es zu trainieren, die Felder eines Dokuments zuzuordnen und eine funktionierende Anwendung zu erstellen. Diese Lösung wird verwendet um Rechnungen und Aufträge zu erfassen. Beispielsweise ist es möglich, das Modell zu trainieren und einen Ablauf zu erstellen, der automatisch Schlüsselinformationen aus Bestelldokumenten erkennt, extrahiert und anschließend eine E-Mail an den zuständigen Mitarbeiter sendet.
 
-Die empfohlenen Formate für Eingabedaten sind .jpg, .png und .pdf. Die Gesamtgröße der, für das Training verwendeten, Dokumente darf insgesamt 50 MB nicht überschreiten.
+Die empfohlenen Formate für die Eingabedaten sind .jpg, .png und .pdf. Die Gesamtgröße der, für das Training verwendeten, Dokumente, darf insgesamt 50 MB nicht überschreiten.
 
 \subsubsection{Object Detection}
 
-Die Objekterkennung wird dazu verwendet, um Objekte auf Fotos oder Videos zu erkennen. Dieses Modell kann verwendet werden, um Produkte oder Maschinen und dazu Informationen zu erhalten. Ebenfalls hilfreich kann dieses Modell bei mobilen Anwendungen sein. Zum Beispiel ein Mitarbeiter will den Bestand eines Produkts überprüfen oder benötigt Einsicht in eine dazu gehörige Betriebsanleitung.
+Die Objekterkennung wird verwendet, um Objekte auf Fotos oder Videos zu erkennen. Dieses Modell kann verwendet werden, um bestimmte Informationen von Produkten oder Maschinen zu erhalten. Ebenfalls hilfreich kann dieses Modell bei mobilen Anwendungen sein.
 
-Für das Training werden mindestens 15 Fotos von jedem Objekt benötigt; je mehr Fotos, desto genauer ist das Modell. Die Fotos sollten eine Vielzahl von Hintergründen mit den abgebildeten Objekten in unterschiedlichen Entfernungen und Winkeln enthalten, um die korrekte Identifizierung der Objekte zu verbessern. Es ist zu beachten, dass die Trainingsbilder im .jpg-, .bmp- oder png-Format vorliegen müssen und insgesamt 6 MB pro Training nicht überschreiten dürfen, wobei die Fotos nicht kleiner als 256 x 256 Pixel sein dürfen. Beständigere Ergebnisse sind möglich, wenn das Verhältnis zwischen den Objekten mit den wenigsten und den meisten Bildern mindestens 1:2 beträgt. Anders ausgedrückt: Wenn 500 die höchste Anzahl von Trainingsbildern für ein Objekt ist, dann muss es mindestens 250 Trainingsbilder für das Objekt mit den wenigsten Bildern geben.
+Für das Training werden mindestens 15 Fotos von jedem Objekt benötigt; je mehr Fotos, desto genauer ist das Modell.  Um eine korrekte Identifiezierung zu gewährleisten, sollten die Fotos möglichst verschiedene Hintergründen beinhalten. Ebenfalls empfehlenswert ist es, Fotos von Objekten aus diversen Entfernungen und Winkeln bereitzustellen. Es ist zu beachten, dass die Trainingsbilder im .jpg-, .bmp- oder png-Format vorliegen müssen und insgesamt 6 MB pro Training nicht überschreiten dürfen. Die Grenze von 256 x 256 Pixel soll jedoch nicht unterschritten werden.
 
-\subsubsection{Prediction}
+\subsubsection{Prediction} 
 
-Bei diesem Modell werden große Mengen an alten Daten analysiert, um darin Muster zu erkennen. Dieses „Wissen“ wird dann verwendet, um diese Muster in neuen Datensätzen zu erkennen und Vorhersagen zu treffen. Diese Mechanismen können Muster aufdecken, die binäre Fragen (ja/nein), Fragen mit mehreren Antworten (eine Liste von Ergebnissen) oder Fragen, die mit einer Zahl beantwortet werden.
+Bei diesem Modell werden große Mengen an alten Daten analysiert, um darin Muster zu erkennen. Das gewonnene Wissen wird dann verwendet, um diese Muster in neuen Datensätzen zu erkennen, und Vorhersagen zu treffen.
 
-Zum Trainieren des Modells werden mindestens 10 Zeilen mit historischen Werten für jede Klasse der Datenspalte "Label" benötigt. Die Mindestanzahl der Zeilen für das Training beträgt 50, aber ein Minimum von 1.000 Zeilen gewährleistet die besten Ergebnisse.
+Zum Trainieren des Modells werden mindestens 10 Zeilen mit historischen Werten, für jede Klasse der Datenspalte "Label", benötigt. Die Mindestanzahl der Zeilen für das Training liegt bei 50, aber ein Minimum von 1.000 Zeilen gewährleistet die erfolgreichsten Ergebnisse.
 
 \subsection{AI-Builder in der Praxis}
 
-Um den AI-Builder für den gewünschten Use-Case am besten zu nutzen, hat sich das Diplomarbeitsteam dazu entschieden, das Modell des Form Processing zu verwenden. Der gewünschte Use-Case ist, mehrere im Vorhinein definierte Felder aus einer Eingangsrechnung, im PDF, zu extrahieren und anschließend zu markieren. Folgende Schritte sind notwendig, um ein Modell zu erstellen, dass auf spezielle Eingangsrechnungen (Siehe Abbildung \ref{fig:example-invoice-figure}) trainiert ist:
+Um den AI-Builder für den gewünschten Use-Case am effektivsten zu nutzen, hat sich das Diplomarbeitsteam dazu entschieden, das Modell des Form Processing zu verwenden. Der gewünschte Use-Case ist mehrere, im Vorhinein definierte Felder aus einer Eingangsrechnung, im PDF, zu extrahieren und anschließend zu markieren. 
+Die untenstehende Abbildung dient zur veranschaulichung einer solchen Eingangsrechnung (Siehe Abbildung \ref{fig:example-invoice-figure}). Folgende Schritte sind ein wesentlicher Bestandteil, um ein Modell zu erstellen, dass auf spezielle Eingangsrechnungen trainiert ist:
 
 \begin{enumerate}
     \item Zu extrahierende Felder definieren
@@ -68,7 +73,7 @@ Um den AI-Builder für den gewünschten Use-Case am besten zu nutzen, hat sich d
     \label{fig:example-invoice-figure}
 \end{figure}
 
-Zunächst ist es wichtig zu wissen, welche Felder man aus der ER extrahieren will. In der folgenden Abbildung wird gezeigt welche Felder bei dieser Arbeit ausgewählt wurden. Diese Felder wurden nur zu Veranschaulichung der Fähigkeiten des AI-Builders ausgewählt und nicht zur firmeninternen Nutzung:
+Zunächst ist es wichtig zu wissen, welche Felder man aus der ER extrahieren will. In der folgenden Abbildung wird gezeigt, welche Felder bei dieser Arbeit ausgewählt wurden. Jene Felder wurden nur zu Veranschaulichung der Fähigkeiten des AI-Builders ausgewählt:
 
 \begin{figure}[h]
     \centering
@@ -99,7 +104,7 @@ Zunächst ist es wichtig zu wissen, welche Felder man aus der ER extrahieren wil
 
 
 Um Daten für das Trainieren des Modells bereitzustellen, ist es notwendig mindestens fünf Beispieldokumente hochzuladen. Nichtsdestotrotz ist für eine hohe Genauigkeit des Modells, sprich wie sicher sich der Algorithmus ist, dass er das richtige Feld markiert hat, von Vorteil mehrere ähnliche Dokumente bereitzustellen. 
-Um dem Algorithmus anzutrainieren, welche Felder in dem Dokument vorhanden sind, ist es relevant die Daten in dem Dokument händisch zu markieren und die zuvor definierten Informationsfelder zu zuweisen. Siehe folgende Abbildung (\ref{fig:ai-builder-tagging-figure})
+Um dem Algorithmus anzutrainieren, welche Felder in dem Dokument vorhanden sind, ist es relevant die Daten in dem Dokument händisch zu markieren, und die zuvor definierten Informationsfelder zu zuweisen. Siehe folgende Abbildung (\ref{fig:ai-builder-tagging-figure})
 
 \begin{figure}[h]
     \centering

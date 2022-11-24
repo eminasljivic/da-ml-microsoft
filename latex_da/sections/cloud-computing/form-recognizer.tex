@@ -1,7 +1,7 @@
 \subsection{Microsof Azure Formularerkennung}
 
 In der Microsoft Produktfamilie der Azure Cognitive Services werden zahlreiche KI unterstützte Dienste, die zur Verbesserung 
-und Automatisierung von Unternehemnssoftware dient, bereitgestellt. Folgende Dienste für Text- und Bildanalyse stehen zur Verfügung:
+und Automatisierung von Unternehemnssoftware dienen, bereitgestellt. Folgende Dienste für Text- und Bildanalyse stehen zur Verfügung:
 
 \begin{enumerate}
     \item Form Recognizer
@@ -12,12 +12,12 @@ und Automatisierung von Unternehemnssoftware dient, bereitgestellt. Folgende Die
 
 Die Datenextraktion der firmeninternen Rechnungen erfolgt in dieser Arbeit mittels Form Recognizer bzw. Formularerkennung.
 Der von Microsoft bereitgestellte Form Recognizer ist speziell auf das Extrahieren von einfachen Daten, wie Rechnungsdaten, 
-Rechnungsnummern oder Anschriften der beteiligten Firmen, aber auch komplexere Dokumentstrukturen, wie Tabellen können entnommen 
+Rechnungsnummern oder Anschriften der beteiligten Firmen ausgelegt. Aber auch komplexere Dokumentstrukturen, wie Tabellen können entnommen 
 werden. 
 
-Alle anderen erwähnten Dienste der Cognitive Services, wie Computer Vision, verfügen über die gleiche Grundfunktionalität, unterscheiden 
+Alle anderen erwähnten Dienste der Cognitive Services wie Computer Vision verfügen über die gleiche Grundfunktionalität, unterscheiden 
 sich jedoch in Qualität, Spezifikation und im Ergebnis. Zum Beispiel ist der Dienst Custom Vision in der Lage zur reinen Textextraktion mithilfe von OCR,
-Bilderkennung und Bewegungsanalysen und der Form Recognizer ist darauf spezialisiert nur gewünschte, meist firmeninternen, Daten aus einem Formular zu entnehmen.
+Bilderkennung und Bewegungsanalysen, während der Form Recognizer darauf spezialisiert ist nur gewünschte, meist firmeninterne, Daten aus einem Formular zu entnehmen.
 
 Für die Nutzung des Form Recognizer Dienstes, wird folgendes vorausgesetzt:
 \begin{enumerate}
@@ -27,8 +27,7 @@ Für die Nutzung des Form Recognizer Dienstes, wird folgendes vorausgesetzt:
 \end{enumerate}
 
 \subsubsection{Ressourcengruppe}
-Um die Formularerkennung nutzen zu können, ist die Erstellung einer Ressourcengruppen notwendig. Diese ist zur eindeutigen Zuordung des zu verwendeten Cloud-Dienstes.
-Erstellt wird diese im Microsoft Azure Portal unter dem Menüpunkt "Ressourcengruppe erstellen".
+Um die Formularerkennung nutzen zu können, ist die Erstellung einer Ressourcengruppen notwendig. Erstellt wird jene im Microsoft Azure Portal unter dem Menüpunkt "Ressourcengruppe erstellen".
 
 \begin{figure}[h]
     \centering
@@ -37,7 +36,7 @@ Erstellt wird diese im Microsoft Azure Portal unter dem Menüpunkt "Ressourcengr
     \label{fig:kimldl-comparison}
 \end{figure}
 
-\newpage In der folgenden Abbildung ist zu sehen, dass die Ressourcengruppe "CognitiveServices" genannt wurde und die Serverregion auf
+\newpage In der folgenden Abbildung ist zu sehen, dass die Ressourcengruppe "CognitiveServices" genannt und die Serverregion auf
 "(Europe) Germany West Central" gesetzt wurde. Die Wahl der Serverregion ist insofern relevant, da je nach Region die Verarbeitung der 
 Daten unterschiedlich ist und somit auch die Datenschutzbestimmungen variieren.
 
@@ -52,9 +51,9 @@ Daten unterschiedlich ist und somit auch die Datenschutzbestimmungen variieren.
 Im nächsten Schritt wird der eigentliche Cloud-Dienst erstellt. Gleich wie die Ressourcengruppe, ist die Formularerkennungsressource ebenfalls über 
 den Menüpunkt "Ressource erstellen" hinzuzufügen.
 
-Wie in der nachstehenden Abbildung zu sehen ist, wird der Cloud-Dienst der Formularerkennung der zuvor erstellten Ressourcengruppe "CognitiveServices"
+Wie der nachstehenden Abbildung entnommen werden kann, wird der Cloud-Dienst der Formularerkennung der zuvor erstellten Ressourcengruppe "CognitiveServices"
 zugewiesen. \ref{fig:formrecognizer-ressourcegroup}
-Ebenfalls wurde die, auschließlich für den Umfang des Testzweckes bestehende Preisebene "Standard S0" gewählt.
+Ebenfalls wurde die, auschließlich für den Umfang des Testzweckes, bestehende Preisebene "Standard S0" gewählt.
 
 
 \begin{figure}[h]
@@ -72,7 +71,7 @@ Diese werden in einem dafür erstellten Azure Blob-Speicherkonto festgehalten.
 \input{sections/cloud-computing/binary-large-object.tex}
 
 Um ein Speicherkonto zu erstellen müssen die Menüpunkte "Ressource erstellen" und "Speicherkonto" ausgewählt werden. Ebenso wie
-bei der Formularerkennungsressource, muss die überstehende Ressource "CognitiveServices" verknüpft werden.
+bei der Formularerkennungsressource muss die überstehende Ressource "CognitiveServices" verknüpft werden.
 
 \begin{figure}[h]
     \centering
@@ -90,12 +89,12 @@ Anschließend können alle zuvor erstellten Ressourcen im Menüpunkt "Alle Resso
     \label{fig:ressourcen-überblick}
 \end{figure}
 
-Im nächsten Schritt wird das Modell erstellt und trainiert um den Dienst Formularerkennung zu nutzen. Zunächst wird das UI zur Erstellung 
+Im nächsten Schritt wird das Modell erstellt und trainiert, um den Dienst Formularerkennung zu nutzen. Zunächst wird das UI zur Erstellung 
 des Modells benötigt. Mit dem nachfolgenden Link ist diese zu erreichen: 
 
 \begin{center}\url{https://fott-2-1.azurewebsites.net/}\end{center}
 
-Um ein eigenes Modell zu erstellen, muss, wie in der folgenden Abbildung zu sehen ist, der dritte Punkt "Use Custom to train a model with labels and get key value pairs"
+Um ein eigenes Modell zu erstellen muss, wie in der folgenden Abbildung zu sehen ist, der dritte Punkt "Use Custom to train a model with labels and get key value pairs"
 ausgewählt werden
 
 \begin{figure}[h]
@@ -105,8 +104,8 @@ ausgewählt werden
     \label{fig:formrecognizer-UI}
 \end{figure}
 
-Als nächstes muss eine Verbindung zwischen dem zuvor erstellten Azure Blob Speicherkonto und dem Projekt erzeugt werden. Erforderliche Eingaben sind, Verbingsname
-und SAS (Shared Access Signature) URI. Diese SAS URI muss davor im Azure Portal in der Übersicht des Azure Blob Speicherkonto generiert werden.
+Als nächstes muss eine Verbindung zwischen dem zuvor erstellten Azure Blob Speicherkonto, und dem Projekt erzeugt werden. Erforderliche Eingaben sind Verbingsname
+und SAS (Shared Access Signature) URI. Diese SAS URI muss zuvor im Azure Portal in der Übersicht des Azure Blob Speicherkonto generiert werden.
 
 \begin{figure}[h]
     \centering
@@ -126,7 +125,7 @@ Als Name für den Security token wurde "DA-Formrecognizer Token" gewählt. Siehe
 \end{figure}
 
 Als finalen Schritt muss jetzt das eigentliche Projekt erstellt werden. Dazu muss im Hauptmenü des Formrecognizer-UI der Punkt "Neues Projekt"
-gewählt werden. Um ein Projekt zu erstellen sind folgende Eingaben essentiell: 
+gewählt werden. Um ein Projekt zu erstellen, sind folgende Eingaben essentiell: 
 
 \begin{enumerate}
     \item Security token
@@ -135,8 +134,8 @@ gewählt werden. Um ein Projekt zu erstellen sind folgende Eingaben essentiell:
     \item API key
 \end{enumerate}
 
-Den zuvor erstellten Security token und connection im Drop-down Menü auswählen und Formrecognizer URL und API key eingeben.
-Die beiden Eingaben Formrecognizer URL und API key können im Azure Portal in der Formrecognizerressource  zu finden. Somit ist 
+Den zuvor erstellten Security token und die connection im Drop-down Menü, der jeweilig zugöhiregn Zeile, auswählen und Formrecognizer URL und API key eingeben.
+Die beiden Eingaben "Formrecognizer URL" und "API key", können im Azure Portal in der Formrecognizerressource gefunden werden. Somit ist 
 Erstellung und Konfiguration der Formrecognizerressource abgeschlossen und es kann mit dem Trainieren des Modells begonnen werden.
 
 \begin{figure}[h]
@@ -147,9 +146,10 @@ Erstellung und Konfiguration der Formrecognizerressource abgeschlossen und es ka
 \end{figure}
 
 \subsubsection{Trainieren des Modells}
-Mit den vorherigen Schritten wurde die Konfiguration der Formularerkennungsressource abgeschlossen und in den folgenden Schritten wird das 
-Anlernen an firmeninterne Rechnungen und die darausfolgende Analyse beschrieben.
-Durch die Auzure Formularerkennung werden dem Benutzer zwei Möglichkeiten zum Trainieren des Modells zur Verfügung gestellt:
+
+Mit den vorherigen Schritten wurde die Konfiguration der Formularerkennungsressource abgeschlossen. In den folgenden Schritten wird das 
+Anlernen der firmeninternen Rechnungen und die darausfolgende Analyse beschrieben.
+Durch die Auzure Formularerkennung werden dem Benutzer zwei Möglichkeiten, zum Trainieren des Modells, zur Verfügung gestellt:
 
 \begin{enumerate}
     \item das Benutzen von vordefinierten Dokumenten 
@@ -158,20 +158,16 @@ Durch die Auzure Formularerkennung werden dem Benutzer zwei Möglichkeiten zum T
 
 Entsprechend der im vorhinein festgelegten Rahmenbediengungen dieser Arbeit, wurden benutzerdefinierte Dokumente, bzw. Rechnungen benutzt.
 Bei benutzerdefinierten Dokumenten ist der Benutzer im Stande, das Modell auf den Aufbau und Inhalt firmenspezifischer Rechnungen zu trainieren.
-Das Modell erlernt hierbei, wie Felder bzw. Rechnungselemnte zusammenhängen und versucht Muster in den verschiedenen Trainingsdaten zu erkennen und später
+Das Modell erlernt hierbei, wie Felder bzw. Rechnungselemnte zusammenhängen, und versucht Muster in den verschiedenen Trainingsdaten zu erkennen, und später
 bei der Analyse anzuwenden. 
 
-Es wird von Microsoft empfohlen, für jede Dokumentenkollektion fünf oder mehr Dokumente hochzuladen. Um dieser Empfehlung nachzukommen wurden zehn Rechnungskollektionen
-von Eingangsrechnungen, mit jeweils vier bis sechs Rechnungen zum Trainieren und weitere zwei bis vier zum Testen in den Azure Blob Speicher geladen.
-Um das Modell trainieren zu können, wurde in den vorherigen Schritten ein Azure Blob Speicherkonto erstellt (\ref{sec:azure-blob}). Die in dem Blob-Speicher enthaltenen
-Rechnungen werden automatisch in die Cloud geladen und in dem Formrecognizer UI angezeigt. Die OCR-Software erkennt nach kurzer Wartezeit alle Zeichen und kennzeichnet diese.
-Weiters müssen anschließend, die von der OCR-Software erkennten Zeichen markiert und den gewünchsten Feldern zugewiesen werden. Diese Zuweisung ist essentiell, um dem Modell eine gewissr Dokumentstruktur zu erlernen. Deshalb wurden das Austellungsdatum dem Tag "Invoice Date" und der Gesamtbetrag der Rechnung "TotalValue" zugewiesen.
+Es wird von Microsoft empfohlen, für jede Dokumentenkollektion fünf oder mehr Dokumente hochzuladen. Um dieser Empfehlung nachzukommen, wurden zehn Rechnungskollektionen von Eingangsrechnungen, mit jeweils vier bis sechs Rechnungen zum Trainieren und weitere zwei bis vier zum Testen in den Azure Blob Speicher geladen. Um das Modell trainieren zu können, wurde in den vorherigen Schritten ein Azure Blob Speicherkonto erstellt (\ref{sec:azure-blob}). Die in dem Blob-Speicher enthaltenen Rechnungen werden automatisch in die Cloud geladen und in dem Formrecognizer UI angezeigt. Die OCR-Software erkennt nach kurzer Wartezeit alle Zeichen und kennzeichnet diese. Weiters müssen anschließend, die von der OCR-Software erkennten Zeichen markiert und den gewünchsten Feldern zugewiesen werden. Diese Zuweisung ist essentiell, um dem Modell eine gewisse Dokumentstruktur zu erlernen. Deshalb wurden das Austellungsdatum dem Tag "Invoice Date" und der Gesamtbetrag der Rechnung "TotalValue" zugewiesen.
 Siehe Abbildung \ref{fig:formrecognizer-invoice-tagging}
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.4]{sections/cloud-computing/images/formrecognizer-invoice-tagging.PNG}
-    \caption{Erstellen der Verbindung}
+    \caption{Übersicht}
     \label{fig:formrecognizer-invoice-tagging}
 \end{figure}
 
@@ -181,7 +177,7 @@ Um tabellarische Daten markieren zu können, wird ein spezieller Tag-Typ benöti
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.4]{sections/cloud-computing/images/formrecognizer-invoice-tagging-items.PNG}
-    \caption{Erstellen der Verbindung}
+    \caption{Tagging der Rechnungsfelder}
     \label{fig:formrecognizer-invoice-tagging-items}
 \end{figure}
 
@@ -191,7 +187,7 @@ verfügbaren Daten, die Dokumentstruktur jeder einzelnen Rechnungskollektion an.
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.4]{sections/cloud-computing/images/formrecognizer-model-overview.PNG}
-    \caption{Erstellen der Verbindung}
+    \caption{Übersicht des Modells}
     \label{fig:formrecognizer-invoice-tagging-items}
 \end{figure}
 
