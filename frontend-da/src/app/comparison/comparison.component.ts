@@ -2,10 +2,8 @@ import {Component, ViewChild} from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {NgxMatFileInputComponent} from "@angular-material-components/file-input/lib/file-input.component";
 import {HttpClient} from "@angular/common/http";
-import {BoundingBox, BoundingBoxState} from "../model/bounding-box";
+import {BoundingBox} from "../model/bounding-box";
 import {DataService} from "../core/service/data.service";
-import { DatePipe } from '@angular/common';
-import { Metric, type } from '../model/metric';
 
 @Component({
   selector: 'app-comparison',
