@@ -18,6 +18,9 @@ import { MetricDashboardComponent } from './metric-dashboard/metric-dashboard.co
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
+import {MatDialogModule} from '@angular/material/dialog';
+import { DataService } from './core/service/data.service';
+
 
 @NgModule({
   declarations: [
@@ -42,8 +45,9 @@ import {MatTableModule} from "@angular/material/table";
     MatButtonModule,
     MatTabsModule,
     MatTableModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

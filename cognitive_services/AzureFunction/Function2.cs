@@ -34,13 +34,13 @@ namespace AzureFunction
         {
      
             string json = await req.ReadAsStringAsync();
-            InvoiceDto i = JsonConvert.DeserializeObject<InvoiceDto>(json);
+            InvoiceDto invoice = JsonConvert.DeserializeObject<InvoiceDto>(json);
 
-            var id = await AddEntityToCRM(i);
-            await SaveMetricsToCRM(i, id);
+            var id = await AddEntityToCRM(invoice);
+            await SaveMetricsToCRM(invoice, id);
             
 
-            return new OkObjectResult(i);
+            return new OkObjectResult(invoice);
         }
 
         private async Task<Guid> AddEntityToCRM(InvoiceDto i)

@@ -24,9 +24,9 @@ namespace AzureFunction
             _crm = crm;
         }
 
-        [FunctionName("getInvoiceDetails")]
+        [FunctionName("GetInvoiceDetails")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             var body = req.Body;

@@ -38,29 +38,7 @@ export class ComparisonComponent{
     }
 
   send(){
-    console.log("begin")
-
-    this.dataService.loading = true;
-    this.http.get(this.url, {responseType: 'blob'}).subscribe((resp: any) => {
-      this.t0 = Date.now()
-      this.http.post("http://localhost:7019/api/getInvoiceDetails", resp).subscribe((invoice: any) => {
-        this.data = invoice;
-        this.t1 = Date.now()
-
-        var req:any = {
-          name: this.filePath.value.name,
-          begin:this.t0,
-          end: this.t1,
-          duration: this.t1 - this.t0,
-          type: "FORMRECOGNIZER",
-          invoice: this.data
-        }
-        this.http.post("http://localhost:7019/api/SaveMetrics", req).subscribe((metric: any) => {
-          console.log(metric);
-          this.dataService.loading = false;
-        });
-      });
-    });
+    this.dataService.saveMetrics(this.url, this.filePath.value.name)
   }
 
   test(){

@@ -11,3 +11,12 @@
 <div id="loader" *ngIf="dataService.loading">
   <mat-spinner></mat-spinner>
 </div>
+<div *ngIf="dataService.error.occured">
+  <ng-template #errorDialog>
+    <h2 matDialogTitle>Ooopsie ein error occured</h2>
+    <p matDialogContent><em>{{this.dataService.error.message}}</em></p>
+    <mat-dialog-actions align="end">
+      <button mat-button matDialogClose>Dismiss</button>
+    </mat-dialog-actions>
+  </ng-template>
+</div>

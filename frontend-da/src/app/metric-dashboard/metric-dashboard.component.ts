@@ -21,13 +21,8 @@ export class MetricDashboardComponent implements OnInit {
 
   GetFRMetrics(){
     this.loaded = false
-    this.dataService.loading = true;
-    this.http.post("http://localhost:7019/api/GetMetrics/type=formrecognizer", null).subscribe((metrics: any) => {
-        this.metrics = metrics
-        console.log(this.metrics)
-        this.dataService.loading = false;
-        this.loaded = true
-    });
+    this.metrics = this.dataService.getAllMetrics();
+    this.loaded = true;
   }
 
   getColor(confidence: string){

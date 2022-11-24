@@ -19,11 +19,23 @@ namespace AzureFunction
         {
             builder.Services.AddSingleton<InvoiceRecognizer>();
 
-            string conn = builder.GetContext().Configuration.GetConnectionString("DataverseConnectionString");
+            string conn = builder.GetContext().Configuration.GetSection("AzureFunctionsJobHost").GetConnectionStringOrSetting("DATAVERSE_CONN_STRING");
 
             builder.Services
                 .AddScoped<IOrganizationServiceAsync2>(_ =>
                     new ServiceClient(conn));
+
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:4200");
+                    });
+            });
         }
+
+        
     }
 }
