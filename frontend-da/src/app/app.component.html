@@ -1,17 +1,18 @@
-<mat-toolbar color="primary">
-  <span>Machine Learning In Microsoft Azure - Ein Vergleich</span>
-  <span class="spacer"></span>
-  <button mat-button [routerLink]="'/custom'">Custom</button>
-  <button mat-button [routerLink]="'/comparison'">Comparison</button>
-  <button mat-button [routerLink]="'/dashboard'">Dashboard</button>
-</mat-toolbar>
-<div style="height: 100%; margin: 5px">
+<div style="display: flex; flex-direction: column;height: 100%">
+  <mat-toolbar color="primary">
+      <span>Machine Learning In Microsoft Azure - Ein Vergleich</span>
+      <span class="spacer"></span>
+      <button mat-button [routerLink]="'/custom'">Custom</button>
+      <button mat-button [routerLink]="'/comparison'">Comparison</button>
+      <button mat-button [routerLink]="'/dashboard'">Dashboard</button>
+    </mat-toolbar>
+<div style="flex: 1;margin: 5px">
   <router-outlet></router-outlet>
 </div>
 <div id="loader" *ngIf="dataService.loading">
   <mat-spinner></mat-spinner>
 </div>
-<div *ngIf="dataService.error.occured">
+<div ngIf="dataService.error.occured">
   <ng-template #errorDialog>
     <h2 matDialogTitle>Ooopsie ein error occured</h2>
     <p matDialogContent><em>{{this.dataService.error.message}}</em></p>
@@ -19,4 +20,5 @@
       <button mat-button matDialogClose>Dismiss</button>
     </mat-dialog-actions>
   </ng-template>
+</div>
 </div>

@@ -1,17 +1,48 @@
 <div id="content">
   <div id="picker">
     <mat-form-field appearance="outline">
-      <ngx-mat-file-input #file [formControl]="filePath" (ngModelChange)="temp()" [multiple]="true" [placeholder]="'Choose one or multiple files...'">
+      <ngx-mat-file-input #file [formControl]="filePaths" (ngModelChange)="getBoundingBoxes()" [multiple]="true"
+                          [placeholder]="'Choose one or multiple files...'">
       </ngx-mat-file-input>
     </mat-form-field>
   </div>
   <div id="main">
-    <pdf-viewer #pdfViewer id="pdfViewerID" [src]="url" class="pdf-viewer-class" [original-size]="true"
-                [autoresize]="true">
-    </pdf-viewer>
-    <div id="fields"></div>
+    <div style="position: relative;">
+      <pdf-viewer #pdfViewer id="pdfViewer" [src]="selectedInvoice.url" *ngIf="selectedInvoice"
+                  class="pdf-viewer-class" [original-size]="true" [zoom-scale]="'page-height'"
+                  [autoresize]="true" style="width: 100%;height: 100%;position: absolute">
+      </pdf-viewer>
+    </div>
+
+    <div id="fields">
+      <div style="flex: 1">
+        <div *ngIf="selectedInvoice">
+          <div *ngFor="let field of selectedInvoice.fields; let i = index">
+            <div class="field selectedField" (click)="fieldSelected(field)" [id]="'field'+i">
+              <mat-form-field appearance="outline" style="width: 100%">
+                <input matInput [(ngModel)]="field.fieldContent">
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="width: 100%">
+                <input matInput [(ngModel)]="field.fieldName">
+              </mat-form-field>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button (click)="addField()" color="primary" [disabled]="!(selectedBoundingBox && !selectedBoundingBox.field)">Add new
+        field
+      </button>
+    </div>
   </div>
   <div id="selector">
-    <mat-button-toggle (click)="send()">Send</mat-button-toggle>
+    <button mat-raised-button (click)="prev()" [disabled]="selectedIndex == 0">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button mat-raised-button (click)="next()"
+            [disabled]="invoices.length == 0 || selectedIndex + 1 == invoices.length">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
   </div>
 </div>
+

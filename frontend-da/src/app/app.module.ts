@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import {NgxMatFileInputModule} from "@angular-material-components/file-input";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { MatTabsModule } from '@angular/material/tabs';
@@ -17,6 +17,8 @@ import { ComparisonComponent } from './comparison/comparison.component';
 import { MetricDashboardComponent } from './metric-dashboard/metric-dashboard.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
 import {MatTableModule} from "@angular/material/table";
 import {MatDialogModule} from '@angular/material/dialog';
 import { DataService } from './core/service/data.service';
@@ -29,24 +31,27 @@ import { DataService } from './core/service/data.service';
     ComparisonComponent,
     MetricDashboardComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    PdfViewerModule,
-    NgxMatFileInputModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatButtonToggleModule,
-    HttpClientModule,
-    MatProgressSpinnerModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatButtonModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        PdfViewerModule,
+        NgxMatFileInputModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatButtonToggleModule,
+        HttpClientModule,
+        MatProgressSpinnerModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatButtonModule,
+        FormsModule,
+        MatInputModule,
+        MatIconModule,
     MatTabsModule,
     MatTableModule,
     MatDialogModule,
-  ],
+    ],
   providers: [DataService],
   bootstrap: [AppComponent]
 })

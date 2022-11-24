@@ -1,0 +1,111 @@
+\subsubsection{CSS}
+
+Um Webseiten zu gestalten wird \gls{css} verwendet, damit kann das Design von der generellen Struktur und dem Inhalt getrennt werden. Wobei \gls{css} immer mit \gls{html} assoziiert wird, kann es mit jeder auf \gls{xml} basierenden Ausdruckssprache benutzt werden.  \cite{HTML-CSS}
+
+Generell besteht eine \gls{css}-Regel aus einem Key/Value-Pair, welches die Styling-Property (was soll geändert werden) und den Styling-Wert (auf was soll es geändert werden) setzt. Dabei wird der Styling-Wert je mach Styling-Property eingeschränkt.
+
+Zusätzlich können mehrere \gls{css}-Regeln zu einer zusammengefasst werden, diese Regeln werden als Shorthand bezeichnet (z.B.: \lstinline{background}, \lstinline{border}). Abhängig von der Werteanzahl wird ein bestimmtes Shorthand referenziert. Die Styling-Property \lstinline{margin} kann folgendermaßen angegeben werden:
+
+\begin{itemize}
+    \item Ein Wert: \lstinline{marging: 10px}
+
+          Dieser Wert wird für alle Seiten genutzt.
+    \item Zwei Werte: \lstinline{marging: 10px 5px}
+
+          Der erste Wert wird für die obere und untere Seite genutzt und der zweite für die linke und rechte.
+    \item Drei Werte:  \lstinline{marging: 10px 5px 15px}
+
+          Der erste Wert wird für die obere Seite genutzt, der zweite Wert für die linke und rechte Seite und der letzte Werte für die untere.
+    \item Vier Werte: \lstinline{margin: 10px 5px 15px 20px}
+
+          Die Werte werden im Uhrzeigersinn beginnend mit der oberen Seite vergeben.
+\end{itemize}
+
+Beispiele für gültige Properties:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|p{0.5\linewidth}|}
+        \hline
+        \lstinline|width/height|  & \lstinline|100px| / \lstinline|100%| & Gibt die Breite/Höhe eines HTML-Elements an (als Länge oder Prozentzahl) \\ \hline
+        \lstinline|display|  & \lstinline|block| / \lstinline|flex| & Gibt an wie die HTML-Elemente angezeigt werden                           \\ \hline
+        \lstinline|margin/padding|  & \lstinline|10px |                          & Gibt den inneren/äußeren Abstand an                                      \\ \hline
+        \lstinline|background| & \lstinline|#fff|                         & Gibt die Farbe/das Bild für den Hintergrund an                           \\ \hline
+        \lstinline|color| & \lstinline|red|                         & Gibt die Farbe/Schriftdicke an                                           \\ \hline
+    \end{tabular}
+    \caption{Beispiele für CSS-Properties}
+\end{table}
+
+Um die Struktur mit dem Styling zu verbinden, bietet \gls{html} drei Möglichkeiten an: \cite{CSS}
+
+\begin{itemize}
+    \item Direkt im \gls{html}-File innerhalb vom \lstinline{<head>}-Tag, mithilfe von einem \lstinline{<style>}-Tag.
+
+          \begin{lstlisting}[language=HTML,numbers=none]
+<head>
+    <style>
+        <!-- CSS-Regeln -->
+    </style>
+</head>
+    \end{lstlisting}
+    \item Als Referenz zu einem separatem \gls{css}-File (Dateinamenserweiterung: \lstinline{.css}), dabei wird ein \lstinline{<link>}-Tag im \lstinline{<head>}-Tag gesetzt. Wobei diese Möglichkeit es ermöglicht die \gls{css}-Regeln in mehreren \gls{html}-Files zu nutzen und man damit Codeverdoppelung vermeidet.
+
+          \begin{lstlisting}[language=HTML,numbers=none]
+<head>
+    <link rel="stylesheet" href="pfad/zum/css-file.css">
+</head>
+    \end{lstlisting}
+    \item Direkt im \gls{html}-Tag mit dem \lstinline{style} Attribut.
+
+          \begin{lstlisting}[language=HTML,numbers=none]
+<div style="<!-- CSS-Regeln -->">
+            \end{lstlisting}
+\end{itemize}
+
+Um eine \gls{css}-Regel zuweisen zu können, werden sogenannte Selektoren angegeben. Welche direkt ein \gls{html}-Element ansprechen oder mehrere zusammenfassen. Gültige Selektoren sind:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|p{0.7\linewidth}|}
+        \hline
+        \lstinline|*| & \lstinline|*| & Selektiert alle HTML-Elemente                                                      \\ \hline
+        \lstinline|element| & \lstinline|h1| & Selektiert alle HTML-Elemente mit dem angegebenen Elementnamen                     \\ \hline
+        \lstinline|.klasse| & \lstinline|.nav| & Selektiert alle HTML-Elemente mit dem angegebenen \lstinline|class|-Attribut \\ \hline
+        \lstinline|#id| & \lstinline|#main| & Selektiert alle HTML-Elemente mit dem angegebenen \lstinline|id|-Attribut \\ \hline
+    \end{tabular}
+    \caption{CSS-Selektoren}
+\end{table}
+
+Um diese Spezifikation noch genauer zu definieren, können Selektoren mit unterschiedlichen Operatoren zusammengefügt werden.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|p{0.4\linewidth}|}
+        \hline
+        \lstinline|,|      & \lstinline|h1, p| & Selektiert alle \lstinline|<p>| und \lstinline|<h1>|-Elemente                                \\ \hline
+        '' '' (Leerzeichen)          & \lstinline|div p| & Selektiert alle \lstinline|<p>|-Elemente in einem \lstinline|<div>|-Elemente                  \\ \hline
+        \lstinline|>|      & \lstinline|div > p| & Selektiert alle \lstinline|<p>|-Elemente, die direkt in einem \lstinline|<div>|-Elemente sind \\ \hline
+        (2 Selektoren ohne Operator) & \lstinline|div.main| & Selektiert alle \lstinline|<div>|-Element, die auch die Klasse \lstinline|.main| haben          \\ \hline
+    \end{tabular}
+    \caption{CSS-Operatoren}
+\end{table}
+
+\paragraph{SCSS}
+
+Da die Funktionalitäten von \gls{css} sehr eingeschränkt sind, wird oftmals als Weiterentwicklung \gls{scss} genutzt. Dies ermöglicht das Vereinfachen von Regeln und macht diese generell besser überschaubar.
+
+Zusätzlich zu den normalen Funktionen von \gls{css}, stellt \gls{scss} zum Beispiel folgende zur Verfügung: \cite{SCSS}
+
+\begin{itemize}
+    \item Variablen
+
+          Um über mehrere Regeln einen gleichen Wert zu setzten, kann dieser Wert in einer Variable gespeichert werden. Dies ermöglicht ein leichtes Updaten an mehreren Stellen gleichzeitig.
+
+    \item Nesting
+
+          Da mit der Zeit die Selektoren sehr kompliziert werden, ermöglicht \gls{scss} das Erstellen von Regeln in einer hierarchischen Abfolge.
+
+    \item Modules
+
+          Damit man Codeverdoppelung vermeidet, kann man weitere \gls{css}-File importieren.
+\end{itemize}

@@ -1,6 +1,6 @@
-\subsection{Arten von Machine Learning}
+\subsection{Arten}
 
-Der wichtigste und komplizierteste Teil beim machinellem Lernen, ist die Kunst einem Computer das selbständige Lernen beizubringen, dabei orientiert man sich am Lernprozess eines Menschens. Dazu besteht es eine Vielzahl an Ansätzen und zu den bekanntesten gehören:
+Der wichtigste und komplizierteste Teil beim maschinellem Lernen ist die Kunst einem Computer das selbständige Lernen beizubringen, dabei orientiert man sich am Lernprozess eines Menschen. Dazu besteht es eine Vielzahl an Ansätzen und zu den bekanntesten gehören:
 
 \begin{itemize}
     \item Supervised Learning
@@ -8,112 +8,84 @@ Der wichtigste und komplizierteste Teil beim machinellem Lernen, ist die Kunst e
     \item Reinforcement Learning
 \end{itemize}
 
-Um diese Ansätze nachvollziehen zu können, muss man zuerst die meschliche Intelligent verstehen, oder genauer gessagt die Frage ''Wie lernt das menschliche Gehirn?''. 
+Um diese Ansätze nachvollziehen zu können, muss man zuerst die menschliche Intelligenz verstehen, oder genauer gesagt die Frage ''Wie lernt das menschliche Gehirn?''.
 
 \subsubsection{Menschliche Ürsprünge vom Machine Learning}
 
-Ein Neugeborenes kommt mit circa 100 Milliarden Neuronen auf die Welt, diese sind jedoch nur schwach miteiander verknüpft. Mithilfe des Lernens werden diese Verbindungen gestärkt und das Kind kann Vorgehensweisen besser 
-verstehen und neue Erkenntnisse gewinnen.
+Bereits als Fötus entwickeln sich Neuronen, die sich über die Zeit verknüpfen und gemeinsam ein Netzwerk bilden, welches dem Körper Anweisungen übermittelt. Daher kommt ein Neugeborenes mit etwa 100 Milliarden Neuronen auf die Welt, die zur Zeit der Geburt nur schwach miteinander verbunden sind. Mithilfe des Lernens werden diese Verbindungen gestärkt und das Kind kann Vorgehensweisen besser verstehen und neue Erkenntnisse gewinnen, damit steigt zusätzlich auch das Gewicht und die Größe des Gehirnes. \cite{LANP}
 
-\begin{figure}[ht]
+Jedoch verschwinden diese Verbindungen, falls sie nicht aufgefrischt werden und Informationen in Vergessenheit verfallen. Weitere Faktoren könnte der Alterungsprozess oder eine neurologische Krankheit sein, die das Phänomen erklären, dass man im höheren Alter Probleme beim Lernen hat. \cite{GENTW}
+
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.8]{sections/machine-learning/images/neuronale-netze.png}
     \caption{Vernetzungen nach der Geburt, nach 3 Monaten und nach 15 Monaten}
 \end{figure}
 %https://www.uni-wuerzburg.de/fileadmin/06000060/04_Fort-_und_Weiterbildungen_Lehrkraefte/Herbsttagungen/Herbsttagung_2016/20161006_WS_04_Neurobiologie.pdf
 
-Die gegenwärtige Neurobiologie, definiert das Lernen als vielschichtigen Prozess, welcher Neuronenverbänder plastisch miteinander verbindet undso bilden sich Netzwerke und System aus Neuroenen. Umso mehr Verbindungen entstehen und mit dem Wiederholen des Gelernten gestärkt werden, desto besser kann das Erlernte aufgerufen werden und mit dem bereits existierenden Vorwissen kombiniert werden.
-
-Mithilfe einem zwecksentfermdeten, morphologischem Kasten, auch Zwicky-Box genannt, kann man das menschliche Gehirn vereinfacht darstellen. Dabei gibt die erste Spalte ausgewählte Merkmale an und die darauf folgenden Spalten eine  weitere Ausspägung vom Merkmal in der selben Zeile. Die große Anzahl der Ausprägungen ermöglicht später breite Auswahl an Ausgägen der Zwicky-Box. 
-
-\begin{table}[ht]
-    \centering
-    \resizebox{.7\textwidth}{!}{
-    \begin{tabular}{|l|l|l|l|}
-    \hline
-        \textbf{Merkmal}  & \multicolumn{3}{c|}{ \textbf{Ausprägungen}}   \\ \hline
-        Augenfarbe & Blau & Grün & Braun  \\ \hline
-        Haarfarbe & Blond & Brünett & Schwarz  \\ \hline
-        Frisur & Lang & Glaze & Kurz  \\ \hline
-        Gesichtsform & Schmal & Rund & Oval  \\ \hline
-        Nase & Klein & Groß & Flach  \\ \hline
-        Brille & Ja & Nein & ~ \\ \hline
-    \end{tabular}}
-    \caption{Beispiel einer Zwicky-Boy}
-\end{table}
-
-In dieser Zwicky-Box wurden Merkmale eines Menschens aufgezählt. Um einen Ausgang darzustellen wird für jedes Merkmal eine Ausprägung ausgewählt und mit einer Linie verbunden, damit man eine Ausprägung von anderen unterscheiden kann. In diesem Beispiel wird die Linie durch verschiedenen Farben ersetzt.
-
-\begin{table}[ht]
-    \centering
-    \resizebox{.7\textwidth}{!}{
-        \begin{tabular}{|l|l|l|l|}
-        \hline
-        \textbf{Merkmal}  & \multicolumn{3}{c|}{ \textbf{Ausprägungen}}   \\ \hline
-        Augenfarbe & \cellcolor{blue!25}Blau & Grün & Braun  \\ \hline
-        Haarfarbe & Blond & \cellcolor{blue!25}Brünett & Schwarz  \\ \hline
-        Frisur & \cellcolor{blue!25}Lang & Glaze & Kurz  \\ \hline
-        Gesichtsform & \cellcolor{blue!25}Schmal & Oval & Rund  \\ \hline
-        Brille & \cellcolor{blue!25}Ja & Nein & ~ \\ \hline
-        \end{tabular}
-    }
-    \caption{Beispiel einer Ausprägung}
-    \label{fig:zwicky-box}
-\end{table}
-
-Jede eingefärbte Zelle kann man als ''aufleuchtendes'' Neuron interpretieren, wenn man versucht das Geschlecht einer fremden Person zu identifizieren. Jedoch lernt man durch dieses ''Aufleuchten'' nicht, da man das eigentliche Geschlecht der Person nicht kennt und man daher keine Verbindungen aufbauen kann. Durch das Kennenlernen von Personen und Merken derer Ausprägungen werden diese oben genannten Neuronenverbindungen aufgebaut, welche später genutzt werden, um das Geschlecht einer fremden Person festzustellen. Diese Art von Lernen ist ein sehr schneller und effektiver Prozess, der mit vielen Nachteilen kommt, denn genau auf diesem Weg werden Vorurteile gebildet. Anhand eines Beispieles: Die meisten würden die obigen Werte aus der Zwicky-Box als Frau wahrnehmen, jedoch könnte jede kleinste Änderung am Aussehen diese Wahrnehmung beeinflussen.
-
-\begin{table}[ht]
-    \centering
-    \resizebox{.7\textwidth}{!}{
-    \begin{tabular}{|l|l|l|l|}
-    \hline
-        \textbf{Merkmal}  & \multicolumn{3}{c|}{ \textbf{Ausprägungen}}   \\ \hline
-        Augenfarbe & \cellcolor{blue!25}Blau & Grün & Braun  \\ \hline
-        Haarfarbe & Blond & \cellcolor{blue!25}Brünett & Schwarz  \\ \hline
-        Frisur & \cellcolor{blue!25}Lang & Glaze & Kurz  \\ \hline
-        Gesichtsform & \cellcolor{blue!25}Schmal & Oval & Rund  \\ \hline
-        Brille & \cellcolor{blue!25}Ja & Nein & ~ \\ \hline
-        ~ & ~ & ~ & ~  \\ \hline
-        Ergebnis: & Frau & ~ & ~ \\ \hline
-        Sicherheit: & 70\% & ~ & ~ \\ \hline
-    \end{tabular}}
-    \caption{Ergebnis einer Ausprägung}
-\end{table}
-
-Da das Aussehen im Beispiel dem Aussehen von Bekannten in gewissen Merkmalen ähnelt, kann man mit einer Wahrscheinlichkeit von 70\% sagen, dass es sich um eine Frau handelt. Desto mehr Personen man kennt, umso besser und genauer werden die Ausprägungen dem Geschlecht zugeteilt und die Sicherheit wird erhöht. 
-
-In dem Fall, dass ein Merkmal nicht erkennbar ist, wird versucht das beste Ergebnis zu finden, jedoch wird die Sicherheit drastisch fallen.
+Neue Informationen verbinden bereits bestehende Neuronen und altes Wissen wird erneuert. Außerdem wird mit oftmaligem Wiederholen das Netzwerk dichter und man kann das Erlernte leichter abrufen, zugleich werden die neuen Informationen mit dem bereits existierenden Vorwissen besser kombiniert. \cite{LANP}
 
 \subsubsection{Supervised Learning}
 
-Hierbei werden gelabelte (daher auch ''supervised'' oder im deutsche überwacht) Datensätze genutzt, um Daten zu klassifizieren oder Vorhersagen genau wie möglich aufzustellen. Diese Art von Lernen kann man in zwei Typen aufteilen:
+An einen Algorithmus werden gruppierte Daten übergeben, die neben einer Gruppe noch mehrere Merkmale beinhalten, um danach neue Datensätze zu klassifizieren oder zu regredieren. Die Bezeichnung ''Supervised'' (im Deutschen ''Überwachtes'') kommt daher, dass die Gruppen bereits vordefiniert sind und das Programm nicht selber welche erstellen muss. \cite{SL:online}
 
-\paragraph{Klassifizierungs} Probleme verwenden Algorithmen, um Daten einer bestimmten Kategorie zuzuteilen. Oft gibt es nur zwei Kategorien wie zum Beispiel Hund/Katze oder Ja/Nein, jedoch gibt es auch Fälle wo eine Vorhersage mit einer Wahrscheinlichkeit zwischen 0 und 1 getroggen wird. Weiteres gibt es auch Situationen, wo zwischen einer großen Menge an Kategorien ausgewählt wird, zum Beispiel bei der Erkennung von handschriftlichen Ziffern, in diesem Beispiel würde es zehn Möglichkeiten geben.
+\begin{table}[H]
+    \centering
+    \resizebox{.7\textwidth}{!}{
+        \begin{tabular}{|l|l|l|l|}
+            \hline
+            \textbf{Farbe} & \textbf{Form} & \textbf{Geschmack} & \textbf{Frucht} \\ \hline
+            rot            & herzförmig    & süß                & Erdbeere        \\ \hline
+            gelb           & oval          & säuerlich          & Zitrone         \\ \hline
+            rot            & rund          & süß                & Apfel           \\ \hline
+            grün           & rund          & säuerlich          & Apfel           \\ \hline
+        \end{tabular}}
+    \caption{Beispiel für gruppierte Daten als Tabelle; Merkmale: Farbe, Form, Geschmack; Gruppe: Frucht}
+    \label{tbl:fruit-data}
+\end{table}
+
+Diese Art von Lernen kann man in zwei Typen aufteilen:
+
+\begin{itemize}
+    \item Klassifizierung
+    \item Regression
+\end{itemize}
+
+\paragraph{Klassifizierungs} Probleme verwenden Algorithmen, um Daten einer bestimmten Kategorie zuzuteilen. Oft gibt es nur zwei Kategorien wie zum Beispiel Hund/Katze oder Ja/Nein, jedoch gibt es auch Fälle wo eine Vorhersage mit einer Wahrscheinlichkeit zwischen 0 und 1 getroffen wird. Weiteres gibt es auch Situationen, wo zwischen einer großen Menge an Kategorien ausgewählt wird, zum Beispiel bei der Erkennung von handschriftlichen Ziffern, in diesem Beispiel würde es zehn Möglichkeiten geben.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{sections/machine-learning/images/0_8-vKSQnZvKbtKXKy.png}
+    \caption{Beispiel für eine Klassifizierung von handschriftlichen Ziffern}
+    \label{ziffern}
+\end{figure}
+% https://aleenamishra10.medium.com/handwritten-digit-recognition-using-machine-learning-f6a08761ff83
 
 Zu diesen ''überwachten'' Algorithmen gehören Lineare Diskriminanzanalysen, Support Vector Machines (SVM), Random Forests und Entscheidungsbäume \cite{SL:online}.
 
-\subparagraph{Entscheidungsbäume,} oder im Englischem Decision Trees, sind Visualisierungen von Entscheidungswegen, oder auch aufgefächerte Zwicky-Boxen, die die Verbidungen visualisieren.
+\subparagraph{Entscheidungsbäume} (Decision Trees) sind eine hierarchische Abfolge von Bedingungen und sind vergleichbar mit verschachtelten if/else-Statements. Dabei beginnt der Entscheidungsbaum mit einer Bedingung, die auch als ''Root-Node'' bezeichnet wird, worauf im Normalfall weitere Bedingungen folgen. Die Blätter dieser Pfade spiegeln die Gruppen oder Klassifizierungen wieder und sind nur über mehrere Pfade erreichbar.
 
-\begin{figure}[ht]
+Jedoch haben ein Entscheidungsbäume das Problem, dass sie sehr gut mit den antrainierten Daten arbeiten und weniger genau mit neuen Daten (Overfitting \ref{overfitting}). Um diese Genauigkeit zu verbessern kann man zum Beispiel über Hyperparameter die maximale Länge eines Pfades setzen, wodurch die Bedingungen verallgemeinert werden.
+
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{sections/machine-learning/images/decision-tree.png}
-    \caption{Decision Tree an dem Beispiel von \ref{fig:zwicky-box}}
+    \includegraphics[scale=0.5]{sections/machine-learning/images/decision-tree.png}
+    \caption{Decision Tree an dem Beispiel von Tabelle \ref{tbl:fruit-data}}
 \end{figure}
 
-In diesem Beispiel sieht dieser Entscheidungsbaum noch sehr lesbar aus, jedoch ändert sich dies, wenn Entscheidungen dargestellt werden, bei denen es auf die Nachkommastelle ankommt und wenn die Kategorien sehr schwer differenzierbar sind. Bei dem Supervised Learning erstellt das Programm selbstständig einen Entscheidungsbaum, indem es Muster oder Zusammenhänge findet und analysiert. Nach vielem Lernen kann dieser Entscheidungsbaum optimiert werden und unnötige Verbindungen können entfernt werden. Jedoch kann es auch passieren, dass durch Zufälle unberechenbare Verbindungen gefunden werden, dieses Problem wird ''Overfitting''. 
+In diesem Beispiel sieht dieser Entscheidungsbaum noch sehr lesbar aus, jedoch ändert sich dies, wenn Entscheidungen dargestellt werden, bei denen es auf die Nachkommastelle ankommt und wenn die Kategorien sehr schwer differenzierbar sind. Bei dem Supervised Learning erstellt das Programm selbstständig einen Entscheidungsbaum, indem es Muster oder Zusammenhänge findet und analysiert. Nach vielem Lernen kann dieser Entscheidungsbaum optimiert werden und unnötige Verbindungen können entfernt werden.
 
-\subparagraph{Overfitting} bedeutet, dass ein Modell perfekt an die Testdaten angepasst ist, jedoch bei unbekannten Daten falsche Verbindungen aufbauen könnte und dadurch falsche Ergebnisse vorhergesagt werden. 
+Fast man mehrere Entscheidungsbäume zusammen, entsteht ein Random Forest, wobei jeder Entscheidungsbaum nur bestimmte Spalten/Merkmale zugeteilt bekommt. Soll ein neuer Datensatz kategorisiert werden, entscheidet die Mehrheit der jener Ergebnisse der Entscheidungsbäume, zu welcher Gruppe dieser Datensatz dazugehört.
 
-\paragraph{Regressionen,} Erstellung einer kontinuierlichen Funktion mithilfe von Werten, die auf oder nahe an der Funktion liegen, sind hilfreich, wenn anstatt diskreten Werten kontinuierliche Werte, wie zum Beispiel die Größe einer Person, festgestellt werden sollen. Dazu gehören lineare Regressionen und logistische Regressionen.
+\paragraph{Regressionen,} Erstellung einer kontinuierlichen Funktion mithilfe von Werten, die auf oder nahe an der Funktion liegen, sind hilfreich, wenn anstatt diskreten Werten kontinuierliche Werte, wie zum Beispiel die Größe einer Person, festgestellt werden sollen. Dazu gehören lineare Regressionen und polynominale Regression.
 
 \subsubsection{Unsupervised Learning}
 
-Beim Unsupervised Learning, oder Unüberwachtes Lernen, erzeugt Verbidungen ohne genauere Informationen über den Testdatensatz. Dabei muss das Programm selbst Gruppen definieren und dann die übergebenen Daten in diese Gruppen zuordnen.
+Beim Unsupervised Learning, oder unüberwachtes Lernen, werden Verbindungen ohne genauere Informationen über den Testdatensatz erzeugt. Dabei muss das Programm selbst Gruppen definieren und dann die übergebenen Daten in diese Gruppen zuordnen. \cite{SL:online}
 
-\paragraph{Clustering} ist einer der beliebtesten Varaiante, um selbstständig Gruppen zu erstellen. Dabei wird jeder Datensatz als Punkt in ein Koordiantensystem mit beliebig vielen Dimesionen eingetragen. Eine Achse stellt ein Attribut dar und je nach Ausprägung ist der Punkt mehr oder weniger vom Ursprung entfernt. 
+\paragraph{Clustering} gehört zu den beliebtesten Varianten, um selbstständig Gruppen zu erstellen. Dabei wird jeder Datensatz als Punkt in ein Koordinatensystem mit beliebig vielen Dimensionen eingetragen. Eine Achse stellt ein Attribut dar und je nach Ausprägung ist der Punkt mehr oder weniger vom Ursprung entfernt.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.8]{sections/machine-learning/images/unclustered-data.png}
     \caption{Unkategorisierte Daten}
@@ -121,11 +93,11 @@ Beim Unsupervised Learning, oder Unüberwachtes Lernen, erzeugt Verbidungen ohne
 \end{figure}
 %https://datascience.eu/de/maschinelles-lernen/clustering-algorithmen-und-ihre-bedeutung-beim-maschinellen-lernen-2/
 
-Auch für das menschliche Auge ist es möglich dieses Beispiel \ref{fig:unclustered-data} in Haufen oder Klumpen zusammenzufassen, genau das gleiche macht ein Programm mit Clustern. Die Interpretation dieser Gruppen muss jedoch wieder durch Menschen erfolgen, da ein Computer nicht im Stande dazu ist, dieser Cluster einer Kategorie zuzuteilen.
+Auch für das menschliche Auge ist es möglich dieses Beispiel (Abbildung \ref{fig:unclustered-data}) in Haufen oder Klumpen zusammenzufassen, genau das gleiche macht ein Programm mit Clustern. Die Interpretation dieser Gruppen muss jedoch wieder durch Menschen erfolgen, da ein Computer nicht im Stande dazu ist, dieser Cluster einer Kategorie zuzuteilen.
 
-Diese Vorgehensweise wird oft in sehr komplizierte Einsatzbereiche genutzt, und daher ist es oft sehr schwer differenzierbare Cluster zu erstellen. Der Prozess, solche Cluster zu definieren, basiert darauf die Punkte so zu gruppieren, dass der Abstand in diesem Cluster klein ist und zu anderen Clustern groß.
+Diese Vorgehensweise wird oft in sehr komplizierte Einsatzbereiche genutzt, und daher ist es sehr schwer differenzierbare Cluster zu erstellen. Der Prozess, solche Cluster zu definieren, basiert darauf, die Punkte so zu gruppieren, dass der Abstand in diesem Cluster klein ist und zu anderen Clustern groß.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.8]{sections/machine-learning/images/clustered-data.png}
     \caption{Kategorisierte Daten}
@@ -134,7 +106,7 @@ Diese Vorgehensweise wird oft in sehr komplizierte Einsatzbereiche genutzt, und 
 
 \subsubsection{Reinforcement Learning}
 
-Das Reinforcement Learning oder das beschränkte/verstärkte Lernen wird oft mit dem Konzept ''Learning by doing'' verglichen, da es sich weniger auf das Ergebnis fokussiert und mehr auf Aktionen oder Vorgängen. Ein Beispiel für diese Vorgehensweise aus der Sicht eines Schülers ist das Üben vor einer Matheschularbeit. Wird während dem Üben ein Fehler gemacht, merkt man sich das Problem und passt sein Verhalten / seinen Rechenweg so an, dass dieser Fehler nicht mehr vorkommt. Die nennt man auch negative Verstärkung. 
+Das Reinforcement Learning, oder das beschränkte/verstärkte Lernen, wird oft mit dem Konzept ''Learning by doing'' verglichen, da es sich weniger auf das Ergebnis fokussiert und mehr auf Aktionen oder Vorgängen. Ein Beispiel für diese Vorgehensweise aus der Sicht eines Schülers ist das Üben vor einer Matheschularbeit. Wird während dem Üben ein Fehler gemacht, merkt man sich das Problem und passt sein Verhalten / seinen Rechenweg so an, dass dieser Fehler nicht mehr vorkommt. Die nennt man auch negative Verstärkung. \cite{SL:online}
 
 Dahingegen führen richtige Ergebnisse oder erwarteten Reaktionen zu positiven Verstärkungen und man versucht dieses Verhalten zu wiederholen.
 

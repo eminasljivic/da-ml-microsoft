@@ -12,7 +12,7 @@
 
 }
 
-#main *{
+#main > *{
   flex: 1;
 }
 
@@ -22,4 +22,40 @@
 
 #selector {
   height: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  *:last-child {
+    margin-left: 5px;
+  }
 }
+
+#fields{
+  display: flex;
+  flex-direction: column;
+}
+
+.field{
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.selectedBoundingBox{
+  border: 2px solid red!important;
+}
+
+.boundingBox{
+  border: 1px solid grey;
+  position: absolute;
+  border-radius: 3px;
+}
+
+.boundingBox:hover{
+  border: 2px solid black;
+  position: absolute;
+}
+
+.selectedField {
+  border: 2px solid red!important;
+}
+
