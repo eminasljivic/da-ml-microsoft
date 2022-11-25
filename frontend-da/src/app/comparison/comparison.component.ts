@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {FormControl} from "@angular/forms";
+import {UntypedFormControl} from "@angular/forms";
 import {NgxMatFileInputComponent} from "@angular-material-components/file-input/lib/file-input.component";
 import {HttpClient} from "@angular/common/http";
 import {BoundingBox} from "../model/bounding-box";
@@ -16,7 +16,7 @@ export class ComparisonComponent{
   myCanvas!: HTMLCanvasElement;
   @ViewChild('pdfViewer') pdfViewer!: any;
 
-  filePath: FormControl = new FormControl();
+  filePath: UntypedFormControl = new UntypedFormControl();
   url: string = "";
   img = new Image();
   boundingBoxes: BoundingBox[] = [];

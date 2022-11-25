@@ -1,5 +1,5 @@
 import {Component, Renderer2, ViewChild} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {NgxMatFileInputComponent} from '@angular-material-components/file-input/lib/file-input.component';
 import {HttpClient} from '@angular/common/http';
 import {BoundingBox} from '../model/bounding-box';
@@ -19,7 +19,7 @@ export class CustomAppComponent {
   @ViewChild('pdfViewer') pdfViewer!: any;
   boundingBoxesContainer!: HTMLElement;
 
-  filePaths: FormControl = new FormControl();
+  filePaths: UntypedFormControl = new UntypedFormControl();
   selectedBoundingBox: BoundingBox | null = null;
   selectedIndex = 0;
   addBoundingBoxAvailable = false;
