@@ -6,6 +6,8 @@ import {BoundingBox} from '../model/bounding-box';
 import {DataService} from '../core/service/data.service';
 import {Field} from '../model/field';
 import {Invoice} from "../model/invoice";
+import {COMMA, ENTER} from "@angular/cdk/keycodes";
+import {MatChipInputEvent} from "@angular/material/chips";
 
 @Component({
   selector: 'app-custom-app',
@@ -24,6 +26,9 @@ export class CustomAppComponent {
 
   invoices: Invoice[] = [];
   selectedInvoice!: Invoice;
+
+  readonly separatorKeysCodes = [ENTER, COMMA] as const;
+  fieldTags: string[] = [];
 
   constructor(private http: HttpClient, private dataService: DataService, private renderer: Renderer2) {
   }
@@ -143,5 +148,20 @@ export class CustomAppComponent {
 
   fieldSelected(field: Field) {
     this.selectBoundingBox(field.boundingBox);
+  }
+
+  addFieldTag(event: MatChipInputEvent) {
+    const value = (event.value || '').trim();
+    if (value) {
+      this.fieldTags.push(value);
+    }
+    event.chipInput!.clear();
+  }
+
+  removeFieldTag(fieldTag: string) {
+    const index = this.fieldTags.indexOf(fieldTag);
+    if (index >= 0) {
+      this.fieldTags.splice(index, 1);
+    }
   }
 }

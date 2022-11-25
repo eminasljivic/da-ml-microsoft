@@ -18,6 +18,9 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatSelectModule} from "@angular/material/select";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -25,24 +28,27 @@ import {MatIconModule} from "@angular/material/icon";
     CustomAppComponent,
     ComparisonComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        PdfViewerModule,
-        NgxMatFileInputModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatButtonToggleModule,
-        HttpClientModule,
-        MatProgressSpinnerModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatButtonModule,
-        FormsModule,
-        MatInputModule,
-        MatIconModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    PdfViewerModule,
+    NgxMatFileInputModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatButtonToggleModule,
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    FormsModule,
+    MatInputModule,
+    MatIconModule,
+    MatChipsModule,
+    MatSelectModule,
+    CommonModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
