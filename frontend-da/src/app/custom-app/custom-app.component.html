@@ -7,10 +7,9 @@
     </mat-form-field>
   </div>
   <div *ngIf="invoices.length != 0">
-    <mat-form-field class="example-chip-list" appearance="outline">
-      <mat-label>Favorite Fruits</mat-label>
+    <mat-form-field style="width: 100%" appearance="outline">
       <mat-chip-grid #chipGrid >
-        <mat-chip-row *ngFor="let fieldTag of fieldTags" (click)="removeFieldTag(fieldTag)">
+        <mat-chip-row *ngFor="let fieldTag of fieldTags" (removed)="removeFieldTag(fieldTag)">
           {{fieldTag}}
           <button matChipRemove>
             <mat-icon>cancel</mat-icon>
@@ -36,14 +35,17 @@
       <div style="flex: 1">
         <div *ngIf="selectedInvoice">
           <div *ngFor="let field of selectedInvoice.fields; let i = index">
-            <div class="field selectedField" (click)="fieldSelected(field)" [id]="'field'+i">
+            <div class="field selected" (click)="fieldSelected(field)" [id]="'field'+i">
               <mat-form-field appearance="outline" style="width: 100%">
                 <input matInput [(ngModel)]="field.fieldContent">
               </mat-form-field>
               <mat-form-field appearance="outline" style="width: 100%">
-                <mat-option *ngFor="let fieldTag of fieldTags" [value]="fieldTag">
-                  {{fieldTag}}
-                </mat-option>
+                <mat-select [(value)]="field.fieldName">
+                  <mat-option *ngFor="let fieldTag of fieldTags" [value]="fieldTag">
+                    {{fieldTag}}
+                  </mat-option>
+                </mat-select>
+
               </mat-form-field>
             </div>
 
@@ -64,6 +66,7 @@
             [disabled]="invoices.length == 0 || selectedIndex + 1 == invoices.length">
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
+    <button (click)="exportFields()"></button>
   </div>
 </div>
 
