@@ -8,7 +8,7 @@
     }
   },
   "ConnectionStrings": {
-    "DATAVERSE_CONN_STRING": "AuthType=ClientSecret;ClientId=f245b90e-2570-43ee-892c-1e7311cc6b76;ClientSecret=zMJ8Q~1aYFRUpT6OCT6PlEWwmzPrUjE3-5xvpb3_;Url=https://orgf25d2498.crm4.dynamics.com/;"
+    "DATAVERSE_CONN_STRING": "AuthType=ClientSecret;ClientId=;ClientSecret=;Url=;"
   },
   "version": "2.0",
   "Host": {
