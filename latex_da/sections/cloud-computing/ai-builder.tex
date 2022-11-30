@@ -37,7 +37,7 @@ Hier werden wichtige Textelemente identifiziert, ferner den definierten Kategori
 
 \subsubsection{Form Processing}
 
-Die Formularverarbeitung ist das KI-Modell, das Daten aus Formularen, auch aus Papier- oder PDF-Dokumenten, extrahiert. Es werden fünf Beispielformluare benötigt, ums es zu trainieren, die Felder eines Dokuments zuzuordnen und eine funktionierende Anwendung zu erstellen. Diese Lösung wird verwendet um Rechnungen und Aufträge zu erfassen. Beispielsweise ist es möglich, das Modell zu trainieren und einen Ablauf zu erstellen, der automatisch Schlüsselinformationen aus Bestelldokumenten erkennt, extrahiert und anschließend eine E-Mail an den zuständigen Mitarbeiter sendet.
+Die Formularverarbeitung ist das KI-Modell, das Daten aus Formularen, auch aus Papier- oder PDF-Dokumenten, extrahiert. Es werden fünf Beispielformulare benötigt, ums es zu trainieren, die Felder eines Dokuments zuzuordnen und eine funktionierende Anwendung zu erstellen. Diese Lösung wird verwendet um Rechnungen und Aufträge zu erfassen. Beispielsweise ist es möglich, das Modell zu trainieren und einen Ablauf zu erstellen, der automatisch Schlüsselinformationen aus Bestelldokumenten erkennt, extrahiert und anschließend eine E-Mail an den zuständigen Mitarbeiter sendet.
 
 Die empfohlenen Formate für die Eingabedaten sind .jpg, .png und .pdf. Die Gesamtgröße der, für das Training verwendeten, Dokumente, darf insgesamt 50 MB nicht überschreiten.
 
@@ -45,9 +45,9 @@ Die empfohlenen Formate für die Eingabedaten sind .jpg, .png und .pdf. Die Gesa
 
 Die Objekterkennung wird verwendet, um Objekte auf Fotos oder Videos zu erkennen. Dieses Modell kann verwendet werden, um bestimmte Informationen von Produkten oder Maschinen zu erhalten. Ebenfalls hilfreich kann dieses Modell bei mobilen Anwendungen sein.
 
-Für das Training werden mindestens 15 Fotos von jedem Objekt benötigt; je mehr Fotos, desto genauer ist das Modell.  Um eine korrekte Identifiezierung zu gewährleisten, sollten die Fotos möglichst verschiedene Hintergründen beinhalten. Ebenfalls empfehlenswert ist es, Fotos von Objekten aus diversen Entfernungen und Winkeln bereitzustellen. Es ist zu beachten, dass die Trainingsbilder im .jpg-, .bmp- oder png-Format vorliegen müssen und insgesamt 6 MB pro Training nicht überschreiten dürfen. Die Grenze von 256 x 256 Pixel soll jedoch nicht unterschritten werden.
+Für das Training werden mindestens 15 Fotos von jedem Objekt benötigt; je mehr Fotos, desto genauer ist das Modell.  Um eine korrekte Identifizierung zu gewährleisten, sollten die Fotos möglichst verschiedene Hintergründen beinhalten. Ebenfalls empfehlenswert ist es, Fotos von Objekten aus diversen Entfernungen und Winkeln bereitzustellen. Es ist zu beachten, dass die Trainingsbilder im .jpg-, .bmp- oder png-Format vorliegen müssen und insgesamt 6 MB pro Training nicht überschreiten dürfen. Die Grenze von 256 x 256 Pixel soll jedoch nicht unterschritten werden.
 
-\subsubsection{Prediction} 
+\subsubsection{Prediction}
 
 Bei diesem Modell werden große Mengen an alten Daten analysiert, um darin Muster zu erkennen. Das gewonnene Wissen wird dann verwendet, um diese Muster in neuen Datensätzen zu erkennen, und Vorhersagen zu treffen.
 
@@ -55,8 +55,8 @@ Zum Trainieren des Modells werden mindestens 10 Zeilen mit historischen Werten, 
 
 \subsection{AI-Builder in der Praxis}
 
-Um den AI-Builder für den gewünschten Use-Case am effektivsten zu nutzen, hat sich das Diplomarbeitsteam dazu entschieden, das Modell des Form Processing zu verwenden. Der gewünschte Use-Case ist mehrere, im Vorhinein definierte Felder aus einer Eingangsrechnung, im PDF, zu extrahieren und anschließend zu markieren. 
-Die untenstehende Abbildung dient zur veranschaulichung einer solchen Eingangsrechnung (Siehe Abbildung \ref{fig:example-invoice-figure}). Folgende Schritte sind ein wesentlicher Bestandteil, um ein Modell zu erstellen, dass auf spezielle Eingangsrechnungen trainiert ist:
+Um den AI-Builder für den gewünschten Use-Case am effektivsten zu nutzen, hat sich das Diplomarbeitsteam dazu entschieden, das Modell des Form Processing zu verwenden. Der gewünschte Use-Case ist mehrere, im Vorhinein definierte Felder aus einer Eingangsrechnung, im PDF, zu extrahieren und anschließend zu markieren.
+Die untenstehende Abbildung dient zur Veranschaulichung einer solchen Eingangsrechnung (Siehe Abbildung \ref{fig:example-invoice-figure}). Folgende Schritte sind ein wesentlicher Bestandteil, um ein Modell zu erstellen, dass auf spezielle Eingangsrechnungen trainiert ist:
 
 \begin{enumerate}
     \item Zu extrahierende Felder definieren
@@ -69,7 +69,7 @@ Die untenstehende Abbildung dient zur veranschaulichung einer solchen Eingangsre
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.9]{sections/cloud-computing/images/example-invoice.png}
-    \caption{Beispiel Eingansrechnung}
+    \caption{Beispiel Eingangsrechnung}
     \label{fig:example-invoice-figure}
 \end{figure}
 
@@ -103,7 +103,7 @@ Zunächst ist es wichtig zu wissen, welche Felder man aus der ER extrahieren wil
 \end{enumerate}
 
 
-Um Daten für das Trainieren des Modells bereitzustellen, ist es notwendig mindestens fünf Beispieldokumente hochzuladen. Nichtsdestotrotz ist für eine hohe Genauigkeit des Modells, sprich wie sicher sich der Algorithmus ist, dass er das richtige Feld markiert hat, von Vorteil mehrere ähnliche Dokumente bereitzustellen. 
+Um Daten für das Trainieren des Modells bereitzustellen, ist es notwendig mindestens fünf Beispieldokumente hochzuladen. Nichtsdestotrotz ist für eine hohe Genauigkeit des Modells, sprich wie sicher sich der Algorithmus ist, dass er das richtige Feld markiert hat, von Vorteil mehrere ähnliche Dokumente bereitzustellen.
 Um dem Algorithmus anzutrainieren, welche Felder in dem Dokument vorhanden sind, ist es relevant die Daten in dem Dokument händisch zu markieren, und die zuvor definierten Informationsfelder zu zuweisen. Siehe folgende Abbildung (\ref{fig:ai-builder-tagging-figure})
 
 \begin{figure}[h]

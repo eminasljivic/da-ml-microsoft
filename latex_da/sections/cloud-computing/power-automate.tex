@@ -1,4 +1,4 @@
-Power Automate ist ein Teil der Microsoft Power-Platform, mit der man Cloud-basierte Automatisierungsprozesse erstellen und verwalten kann. Der Benutzer hat Zugriff auf verschiedene Dienste von Microsoft und kann ohne Code einen Workflow erstellen. Power Automate reagiert auf einen im Vorhinein definierten Trigger und führt eine Reihe von vordefinierten Schritten aus. Dieser Trigger kann eine eingehende E-Mail, ein neu erstellter Datensatz im CRM oder einfach die Erstellung eines neuen Dokuments im SharePoint sein. Somit ist es möglich, auch ohne jegliche Vorkenntnisse oder fachspezifisches Wissen, eine einfache Anwendung zu erstellen. Beispielsweise ist es möglich, eine eingehende Email, die eine Eingangsrechnung beinhaltet, auszulesen und weiterzuverarbeiten. Nun kann man nithilfe des AI-Builder, jenen Inhalt zu verarbeiten und verschiedene Information auszulesen.
+Power Automate ist ein Teil der Microsoft Power-Platform, mit der man Cloud-basierte Automatisierungsprozesse erstellen und verwalten kann. Der Benutzer hat Zugriff auf verschiedene Dienste von Microsoft und kann ohne Code einen Workflow erstellen. Power Automate reagiert auf einen im Vorhinein definierten Trigger und führt eine Reihe von vordefinierten Schritten aus. Dieser Trigger kann eine eingehende E-Mail, ein neu erstellter Datensatz im CRM oder einfach die Erstellung eines neuen Dokuments im SharePoint sein. Somit ist es möglich, auch ohne jegliche Vorkenntnisse oder fachspezifisches Wissen, eine einfache Anwendung zu erstellen. Beispielsweise ist es möglich, eine eingehende Email, die eine Eingangsrechnung beinhaltet, auszulesen und weiterzuverarbeiten. Nun kann man mithilfe des AI-Builder, jenen Inhalt zu verarbeiten und verschiedene Information auszulesen.
 
 \subsection{Cloud Flow}
 Da bei der vorliegenden Arbeit nur der Cloud Flow in Verwendung ist, wird hier nur auf diesen genauer eingegangen. Power Automate bietet hier drei verschiedene Arten von Cloud Flows an:
@@ -28,7 +28,7 @@ Die Diplomanden dieser Arbeit entschieden sich für einen Automated Flow, da die
     \label{fig:flow-trigger}
 \end{figure}
 
-Um alle Anlagen der E-Mail zu verarbeiten, wird eine Schleife um die nächsten Schritte gesetzt. Da es erlaubt ist mehrere Eingangsrechnungen in der E-Mail anzuhängen, muss jeder Anhang einzeln verarveitet werden. Das zuvor definierte AI-Builder Modell extrahiert die notwendigen Information aus dem Dokument (Siehe Abbildung \ref{fig:ai-model-in-use}).
+Um alle Anlagen der E-Mail zu verarbeiten, wird eine Schleife um die nächsten Schritte gesetzt. Da es erlaubt ist mehrere Eingangsrechnungen in der E-Mail anzuhängen, muss jeder Anhang einzeln verarbeitet werden. Das zuvor definierte AI-Builder Modell extrahiert die notwendigen Information aus dem Dokument (Siehe Abbildung \ref{fig:ai-model-in-use}).
 
 \begin{figure}[H]q
     \centering
@@ -37,7 +37,7 @@ Um alle Anlagen der E-Mail zu verarbeiten, wird eine Schleife um die nächsten S
     \label{fig:ai-model-in-use}
 \end{figure}
 
-Um die extrahierten Daten zu persistieren, wurde eine Dynamcis CRM Testumgebung aufgesetzt, um einen echten Geschäftsfall zu simulieren. Es wurden zwei Entitäten, Invoice und Invoice Items erstellt (\ref{fig:class-diagram}). Da die Entität Invoice Items von der Entität Invoice abhängig ist, muss die die Entität Invoice Items eigens gespeichert werden.
+Um die extrahierten Daten zu persistieren, wurde eine Dynamics CRM Testumgebung aufgesetzt, um einen echten Geschäftsfall zu simulieren. Es wurden zwei Entitäten, Invoice und Invoice Items erstellt (\ref{fig:class-diagram}). Da die Entität Invoice Items von der Entität Invoice abhängig ist, muss die die Entität Invoice Items eigens gespeichert werden.
 
 \textbf{Kurzer Exkurs; Microsoft Dynamics CRM:}
 \input{sections/cloud-computing/microsoft-dynamics-365.tex}
@@ -45,7 +45,7 @@ Um die extrahierten Daten zu persistieren, wurde eine Dynamcis CRM Testumgebung 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{sections/cloud-computing/images/power-automate-flow/cld.png}
-    \caption{Klassendiagram Invoice}
+    \caption{Klassendiagramm Invoice}
     \label{fig:class-diagram}
 \end{figure}
 
