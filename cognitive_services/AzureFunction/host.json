@@ -1,0 +1,17 @@
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "ConnectionStrings": {
+    "DATAVERSE_CONN_STRING": "AuthType=ClientSecret;ClientId=;ClientSecret=;Url=;"
+  },
+  "version": "2.0",
+  "Host": {
+    "CORS": "*"
+  }
+}

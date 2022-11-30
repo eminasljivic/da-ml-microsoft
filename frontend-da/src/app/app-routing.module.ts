@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ComparisonComponent } from './comparison/comparison.component';
 import {CustomAppComponent} from "./custom-app/custom-app.component";
+import { MetricDashboardComponent } from './metric-dashboard/metric-dashboard.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,11 @@ const routes: Routes = [
   {
     path: 'comparison',
     component: ComparisonComponent
+
+  },
+  {
+    path: 'dashboard',
+    component: MetricDashboardComponent
 
   }/*
   {
