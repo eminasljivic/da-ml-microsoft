@@ -23,7 +23,7 @@ namespace Core.Entities
 
         public static string ATTR_ITEM_INVOICEID = "new_invoiceid";
         public static string ATTR_ITEM_DESCRIPTION = "new_description";
-        public static string ATTR_ITEM_QUANTITY = "new_qantity";
+        public static string ATTR_ITEM_QUANTITY = "new_quantity";
         public static string ATTR_ITEM_TOTALPRICE = "new_totalprice";
         public static string ATTR_ITEM_UNIT = "new_unit";
         public static string ATTR_ITEM_UNITPRICE = "new_unitprice";
