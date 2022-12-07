@@ -1,1 +1,1 @@
-# Machine earning Microsoft Comparison
+# Machine Learning Microsoft Comparison
