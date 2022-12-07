@@ -5,7 +5,7 @@ Das Erstellen von einem \Gls{ml}-Modell wird in vier Phasen unterteilt, wobei je
 \begin{enumerate}
       \item Vorbereitung der Daten / Preprocessing
 
-            Jeder Anfang sollte mit einer Analyse der Daten anfangen. Dabei sollte man die Datentypen, die Anzahl der Daten oder Klassifizierungen und die Anzahl der fehlenden Werte zusammenzufassen und überblickbar darstellen (Tabellen oder Diagramme). Dies hat zwei wesentliche Gründe und einer davon ist, dass man sich mit den Daten vertraut macht und danach über ein gewisses Verstehen verfügt. Der zweite Grund ist, dass man im Verlauf der Phase die Daten so verarbeiten kann, dass man am Ende das beste Ergebnis erreicht.
+            Jeder Anfang sollte mit einer Analyse der Daten anfangen. Dabei sollte man die Datentypen, die Anzahl der Daten oder Klassifizierungen und die Anzahl der fehlenden Werte zusammenzufassen und übersichtlich darstellen (Tabellen oder Diagramme). Dies hat zwei wesentliche Gründe und einer davon ist, dass man sich mit den Daten vertraut macht und danach über ein gewisses Verständnis verfügt. Der zweite Grund ist, dass man im Verlauf der Phase die Daten so verarbeiten kann, dass man am Ende das beste Ergebnis erreicht.
 
             Diese Vorbereitung sollte mit stichprobenartigen Daten angeführt und später durch verschiedene Strategien weitergeführt werden, die dazu dienen, entweder fehlende Daten zu bereinigen oder Ausreißer zu beseitigen.
 
@@ -24,7 +24,7 @@ Das Erstellen von einem \Gls{ml}-Modell wird in vier Phasen unterteilt, wobei je
 
             Um dies noch leichter zu machen, ist es wichtig, dass die Farbpalette an die gegebene Situation angepasst ist, da es bei schlechter Repräsentation leicht zu Verwirrung kommen kann. Wie zum Beispiel beim Darstellen des Wetters bietet sich die Farbe blau für Regen an und rot/gelb für Sonnenschein.
 
-            Jedes Diagramm hat seine Vorteile und Nachteile, wie zum Beispiel beim Violinplot die Verteilung der Daten relativ zur Anzahl der gleichen Klassifizierung sehr gut dargestellt werden. Jedoch hat es den Nachteil, dass diese Darstellungen oft irreführend sind, da sie relativ anstatt absolut ist.
+            Jedes Diagramm hat seine Vorteile und Nachteile, wie zum Beispiel beim Violinplot die Verteilung der Daten relativ zur Anzahl der gleichen Klassifizierung sehr gut dargestellt werden. Jedoch hat es den Nachteil, dass diese Darstellungen oft irreführend sind, da sie relativ anstatt absolut sind.
 
             Um Zusammenhänge besser zu erkennen, kann man zwei Variablen in einem Diagramm darstellen.
 
@@ -32,7 +32,7 @@ Das Erstellen von einem \Gls{ml}-Modell wird in vier Phasen unterteilt, wobei je
 
             Der erste Schritt beim Trainieren ist die Einteilung von Trainingsdaten und Testdaten, hierzu wird eine Einteilung von 70\% zum Trainieren und 30\% zum Testen angestrebt.
 
-            Es ist wichtig, dass die Testdaten eine ausgeglichene Anzahl von Daten pro Klassifizierung enthaltet, da es sonst zu einem unausgewogenen Modell kommen könnte. Wie in \ref{overfitting} (Overfitting) beschrieben wurde, kann sich ein Modell zu sehr an die übergebenen Trainingsdaten anpassen, sodass später die Testdaten nicht korrekt klassifiziert werden. Um dies vorzubeugen, könnte man einen Teil der Testdaten als Validierungsdaten nutzen, welche die Anpassung der Hyperparameter möglich machen \cite{DatenZumTrainieren}.
+            Es ist wichtig, dass die Testdaten eine ausgeglichene Anzahl von Daten pro Klassifizierung enthalten, da es sonst zu einem unausgewogenen Modell kommen könnte. Wie in \ref{overfitting} (Overfitting) beschrieben wurde, kann sich ein Modell zu sehr an die übergebenen Trainingsdaten anpassen, sodass später die Testdaten nicht korrekt klassifiziert werden. Um dies vorzubeugen, könnte man einen Teil der Testdaten als Validierungsdaten nutzen, welche die Anpassung der Hyperparameter möglich machen \cite{DatenZumTrainieren}.
 
             Es ist außerdem wichtig, dass die Testdaten lediglich zum Testen benutzt werden, denn sobald das Modell diese Daten verarbeitet, werden sie gespeichert und im späteren Verlauf ebenfalls zur Klassifizierung genutzt.
 

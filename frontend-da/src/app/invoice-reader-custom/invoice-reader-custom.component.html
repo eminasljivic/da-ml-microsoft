@@ -1,0 +1,12 @@
+<div id="picker">
+  <mat-form-field appearance="outline">
+    <ngx-mat-file-input [formControl]="filePath" (ngModelChange)="getData()"
+                        [placeholder]="'Choose one file...'">
+    </ngx-mat-file-input>
+  </mat-form-field>
+</div>
+
+<ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" name="fieldName" ngDefaultControl
+                   style="height: 80%"></ngx-monaco-editor>
+
+

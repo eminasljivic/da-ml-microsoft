@@ -1,0 +1,14 @@
+\subsection{Named Entity Recognition}
+
+Unter \gls{ner} versteht man das Extrahieren und Identifizieren von Entitäten in einem Text. Wobei es sich bei dem Typen um eine Zahl, ein Wort oder eine Zusammensetzung von mehreren Wörtern handeln kann. 
+
+Dieser Vorgang ist in zwei Schritte unterteilt: \cite{NER}
+
+\begin{itemize}
+    \item Identifizierung einer Entität
+    \item Klassifizierung einer Entität
+\end{itemize}
+
+Die Identifizierung versucht in einem Text vorkommende Wörter in Entitäten und Füllwörter zu unterteilen. Dazu ist es wichtig, dass ein Modell nicht nur mit Entitäten antrainiert wird, sondern mit einem ganzen Text, der beide Wortarten beinhaltet. 
+
+Die Klassifizierung versucht einer Entität eine Klasse zuzuweisen. Die meisten \gls{ner}-Modelle sind schon mit herkömmlichen Klassen (Person, Ort, Uhrzeit, Datum) antrainiert, jedoch besteht auch die Möglichkeit, eigene Klassen zu erstellen und das Modell mit diesen zu trainieren. 

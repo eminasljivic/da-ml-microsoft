@@ -8,7 +8,7 @@
   </div>
   <div *ngIf="invoices.length != 0">
     <mat-form-field style="width: 100%" appearance="outline">
-      <mat-chip-grid #chipGrid >
+      <mat-chip-grid #chipGrid>
         <mat-chip-row *ngFor="let fieldTag of fieldTags" (removed)="removeFieldTag(fieldTag)">
           {{fieldTag}}
           <button matChipRemove>
@@ -32,28 +32,32 @@
     </div>
 
     <div id="fields">
-      <div style="flex: 1">
-        <div *ngIf="selectedInvoice">
-          <div *ngFor="let field of selectedInvoice.fields; let i = index">
-            <div class="field selected" (click)="fieldSelected(field)" [id]="'field'+i">
-              <mat-form-field appearance="outline" style="width: 100%">
-                <input matInput [(ngModel)]="field.fieldContent">
+      <div style="flex: 1;position: relative">
+        <div *ngIf="selectedInvoice" style="position: absolute;height: 100%;width: 100%;overflow: auto">
+          <div *ngFor="let field of selectedInvoice.fields; let i = index" class="field selected"
+               (click)="fieldSelected(field)" [id]="'field'+i">
+            <div style="display: flex">
+              <mat-form-field appearance="outline" style="flex: 1">
+                <input matInput [(ngModel)]="field.fieldContent" placeholder="Content">
               </mat-form-field>
-              <mat-form-field appearance="outline" style="width: 100%">
-                <mat-select [(value)]="field.fieldName">
-                  <mat-option *ngFor="let fieldTag of fieldTags" [value]="fieldTag">
-                    {{fieldTag}}
-                  </mat-option>
-                </mat-select>
 
-              </mat-form-field>
+              <button mat-icon-button style="margin-top:5px" (click)="removeField(field)">
+                <mat-icon>delete</mat-icon>
+              </button>
             </div>
-
+            <mat-form-field appearance="outline" style="width: 100%">
+              <mat-select [(value)]="field.fieldName" placeholder="Field-Tag">
+                <mat-option *ngFor="let fieldTag of fieldTags" [value]="fieldTag">
+                  {{fieldTag}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
       </div>
       <button mat-raised-button (click)="addField()" color="primary"
-              [disabled]="!(selectedBoundingBox && !selectedBoundingBox.field)">Add new
+              [disabled]="!(selectedBoundingBoxes.length != 0 && selectedBoundingBoxes[0].field == null) "
+              style="margin: 5px">Add new
         field
       </button>
     </div>
@@ -66,7 +70,9 @@
             [disabled]="invoices.length == 0 || selectedIndex + 1 == invoices.length">
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
-    <button (click)="exportFields()"></button>
+    <button mat-raised-button (click)="exportFields()" color="primary" style="right: 0; position: absolute"
+            [disabled]="invoices.length==0">Export
+    </button>
   </div>
 </div>
 

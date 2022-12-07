@@ -11,10 +11,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.info('Size HTTP functions registered a request.')
 
         body = req.get_body()
-        image = convert_from_bytes(body, dpi=300)
+        image = convert_from_bytes(body)
         logging.info(image[0].size)
 
         return func.HttpResponse(json.dumps(image[0].size))
     except:
-        return func.HttpResponse("An error occured while processing the request", status_code=400)
+        return func.HttpResponse("An error occured while processing the request", status_code=500)
     

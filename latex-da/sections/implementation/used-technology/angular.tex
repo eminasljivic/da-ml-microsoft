@@ -4,7 +4,7 @@ Angular ist ein auf TypeScript basierendes Frontend-Framework, welches neben Rea
 
 \paragraph{Components}
 
-Das Frontend wird in Komponenten (Components) aufgeteilt und diese stellen unterschiedliche Elemente der Darstellung dar, welche auch mehrmals untereinander verwendet werden können, um repetitiven Code zu verhindern.
+Das Frontend wird in Komponenten (Components) aufgeteilt und diese stellen unterschiedliche Elemente dar, welche auch mehrmals untereinander verwendet werden können, um Codeverdopplung zu verhindern.
 
 Jedes Component besteht aus
 
@@ -14,6 +14,7 @@ Jedes Component besteht aus
     \item einem Stylesheet (CSS/SCSS-File).
 \end{itemize}
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}[language=TypeScript,caption={Beispiel eines Angular-Components}]
     @Component({
         selector: 'custom-app',
@@ -36,6 +37,7 @@ Jedes Component besteht aus
     // Restlicher Code
     }
 \end{lstlisting}
+\end{minipage}
 
 Wie man im obigen Beispiel sieht, müssen bei einem Component Felder gesetzt werden, damit die unterschiedlichen Files miteinander assoziierbar sind:
 
@@ -65,15 +67,14 @@ Generell besteht die Struktur aus üblichen HTML-Tags, jedoch kann es zusätzlic
     \item Two-Way Binding
 \end{itemize}
 
-
 \subparagraph{Interpolation} Bei einer Interpolation werden zwei geschwungene Klammern ''\{\{\}\}'' genutzt, um den Wert einer Variable im Frontend anzuzeigen. Dabei muss darauf geachtet werden, dass die Interpolation immer den String-Wert der Variable nutzt. \cite{ANG-IN}
 
 \subparagraph{Property Binding} Mit einem Property Binding können genau wie bei der Interpolation Daten im Frontend angegeben werden, jedoch kann jeder Datentyp genutzt werden.
 
 \subparagraph{Event Binding} Damit kann das Backend auf gewisse Aktionen (Klicken, Bewegung der Maus, Hover) im Frontend reagieren.
 
-\subparagraph{Two-Way Binding} Die Mischung aus den Vorherigen ergibt das Two-Way Binding. Sowohl das Backend als auch das Frontend reagiert auf Änderungen der jeweils anderen Komponente.
+\subparagraph{Two-Way Binding} Die Mischung aus den Vorherigen ergibt das Two-Way Binding. Sowohl das Backend als auch das Frontend reagieren auf Änderungen der jeweils anderen Komponente.
 
 \paragraph{CLI}
 
-Eine \gls{cli} ermöglicht das Nutzen von Funktion über die Kommandozeile, spezifisch für Angular wird darüber das Erstellen, Generieren und Verwalten gesteuert. Das Kommandowort für Angular lautet \lstinline{ng} und darauf können unterschiedliche Funktionswörter folgen.
+Ein \gls{cli} ermöglicht das Nutzen von Funktion über die Kommandozeile, spezifisch für Angular wird darüber das Erstellen, Generieren und Verwalten gesteuert. Das Kommandowort für Angular lautet \lstinline{ng} und darauf können unterschiedliche Funktionswörter folgen.

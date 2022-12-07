@@ -5,3 +5,5 @@ easyocr==1.4.1
 pdf2image==1.16.0
 spacy
 pytesseract
+pandas
+concise-concepts

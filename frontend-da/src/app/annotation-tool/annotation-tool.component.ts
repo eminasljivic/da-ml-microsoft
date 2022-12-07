@@ -6,24 +6,23 @@ import {BoundingBox} from '../model/bounding-box';
 import {DataService} from '../core/service/data.service';
 import {Field} from '../model/field';
 import {Invoice} from "../model/invoice";
-import {COMMA, ENTER} from "@angular/cdk/keycodes";
+import {COMMA, ENTER, SPACE} from "@angular/cdk/keycodes";
 import {MatChipInputEvent} from "@angular/material/chips";
 import * as JSZip from "jszip";
 import * as FileSaver from "file-saver";
 
 
 @Component({
-  selector: 'app-custom-app',
-  templateUrl: './custom-app.component.html',
-  styleUrls: ['./custom-app.component.scss']
+  selector: 'app-annotation-tool',
+  templateUrl: './annotation-tool.component.html',
+  styleUrls: ['./annotation-tool.component.scss']
 })
-export class CustomAppComponent {
-  @ViewChild('file') file!: NgxMatFileInputComponent;
+export class AnnotationToolComponent {
   @ViewChild('pdfViewer') pdfViewer!: any;
   boundingBoxesContainer!: HTMLElement;
 
   filePaths: UntypedFormControl = new UntypedFormControl();
-  selectedBoundingBox: BoundingBox | null = null;
+  selectedBoundingBoxes: BoundingBox[] = [];
   selectedIndex = 0;
 
   invoices: Invoice[] = [];
@@ -59,7 +58,7 @@ export class CustomAppComponent {
       const bounds = await Promise.all(getBoundsPromises);
       this.invoices.forEach((i, idx) => {
         const data = bounds[idx] as any[][];
-        i.boundingBoxes = data.map(d => new BoundingBox(d[0] as number[][], d[1] as string));
+        i.boundingBoxes = data.map(d => new BoundingBox(d.slice(0, d.length - 1), d[d.length - 1] as string));
       });
 
       this.drawBoxes();
@@ -79,9 +78,11 @@ export class CustomAppComponent {
   }
 
   addField() {
-    const newField = new Field(this.selectedBoundingBox!, this.selectedBoundingBox!.text);
-    this.selectedBoundingBox!.field = newField;
-    this.selectedInvoice.fields.push(newField);
+    if(!this.selectedBoundingBoxes[0].field){
+      const newField = new Field(this.selectedBoundingBoxes, this.selectedBoundingBoxes.map(b => b.text).join(' '));
+      this.selectedBoundingBoxes.forEach(b => b.field = newField);
+      this.selectedInvoice.fields.push(newField);
+    }
   }
 
   drawBoxes() {
@@ -92,13 +93,13 @@ export class CustomAppComponent {
 
   addBox(boundingBox: BoundingBox) {
     const box = this.renderer.createElement('div');
-    this.renderer.setStyle(box, 'width', (Number(boundingBox.box[2][0]) - Number(boundingBox.box[0][0])) * this.selectedInvoice.factor + 'px');
-    this.renderer.setStyle(box, 'height', (Number(boundingBox.box[2][1]) - Number(boundingBox.box[0][1])) * this.selectedInvoice.factor + 'px');
-    this.renderer.setStyle(box, 'top', Number(boundingBox.box[0][1]) * this.selectedInvoice.factor + 'px');
-    this.renderer.setStyle(box, 'left', Number(boundingBox.box[0][0]) * this.selectedInvoice.factor + 'px');
+    this.renderer.setStyle(box, 'width', boundingBox.box[2] * this.selectedInvoice.factor + 'px');
+    this.renderer.setStyle(box, 'height', boundingBox.box[3] * this.selectedInvoice.factor + 'px');
+    this.renderer.setStyle(box, 'top', boundingBox.box[1] * this.selectedInvoice.factor + 'px');
+    this.renderer.setStyle(box, 'left', boundingBox.box[0] * this.selectedInvoice.factor + 'px');
     this.renderer.addClass(box, 'boundingBox');
     boundingBox.htmlElement = box;
-    this.renderer.listen(box, 'click', () => this.selectBoundingBox(boundingBox));
+    this.renderer.listen(box, 'click', (event) => this.selectBoundingBox(boundingBox, event));
     this.renderer.listen(box, 'dblclick', () => {
       this.selectBoundingBox(boundingBox);
       this.addField();
@@ -106,7 +107,7 @@ export class CustomAppComponent {
     this.renderer.appendChild(this.boundingBoxesContainer, box);
   }
 
-  selectBoundingBox(boundingBox: BoundingBox) {
+  selectBoundingBox(boundingBox: BoundingBox, event: MouseEvent | null = null) {
     this.removeSelectedField();
 
     if (boundingBox.field) {
@@ -114,9 +115,26 @@ export class CustomAppComponent {
       this.renderer.addClass(htmlElement, 'selected');
     }
 
+    if (event?.metaKey) {
+      this.selectedBoundingBoxes.push(boundingBox);
+      this.renderer.addClass(boundingBox.htmlElement, 'selected');
+    } else {
+      this.boundingBoxesContainer.childNodes.forEach((c: any) => this.renderer.removeClass(c, 'selected'));
+      this.renderer.addClass(boundingBox.htmlElement, 'selected');
+      this.selectedBoundingBoxes = [];
+      this.selectedBoundingBoxes.push(boundingBox);
+    }
+  }
+
+  private selectBoundingBoxes(boundingBoxes: BoundingBox[]) {
+    this.removeSelectedField();
+    const htmlElement = document.getElementById('field' + this.selectedInvoice.fields.indexOf(boundingBoxes[0].field));
+    this.renderer.addClass(htmlElement, 'selected');
     this.boundingBoxesContainer.childNodes.forEach((c: any) => this.renderer.removeClass(c, 'selected'));
-    this.renderer.addClass(boundingBox.htmlElement, 'selected');
-    this.selectedBoundingBox = boundingBox;
+
+    for (const boundingBox of boundingBoxes) {
+      this.renderer.addClass(boundingBox.htmlElement, 'selected');
+    }
   }
 
   removeSelectedField() {
@@ -126,10 +144,18 @@ export class CustomAppComponent {
     }
   }
 
+  removeField(field:Field){
+    this.selectedInvoice.boundingBoxes.filter(b => b.field == field).forEach(b => b.field = null);
+    const index = this.selectedInvoice.fields.indexOf(field, 0);
+    if (index > -1) {
+      this.selectedInvoice.fields.splice(index, 1);
+    }
+  }
+
   next() {
     this.selectedIndex++;
     this.selectedInvoice = this.invoices[this.selectedIndex];
-    this.selectedBoundingBox = null;
+    this.selectedBoundingBoxes = [];
 
     setTimeout(() => {
       this.preparePdfViewer();
@@ -140,7 +166,7 @@ export class CustomAppComponent {
   prev() {
     this.selectedIndex--;
     this.selectedInvoice = this.invoices[this.selectedIndex];
-    this.selectedBoundingBox = null;
+    this.selectedBoundingBoxes = [];
 
     setTimeout(() => {
       this.preparePdfViewer();
@@ -149,7 +175,7 @@ export class CustomAppComponent {
   }
 
   fieldSelected(field: Field) {
-    this.selectBoundingBox(field.boundingBox);
+    this.selectBoundingBoxes(field.boundingBoxes);
   }
 
   addFieldTag(event: MatChipInputEvent) {
@@ -188,7 +214,7 @@ export class CustomAppComponent {
     const zip = new JSZip();
     const name = zipName + '.zip';
     for (let counter = 0; counter < files.length; counter++) {
-      zip.file(names[counter].split('.').slice(0, -1).join('.') +'.json', files[counter]);
+      zip.file(names[counter].split('.').slice(0, -1).join('.') + '.json', files[counter]);
     }
     zip.generateAsync({type: 'blob'}).then((content) => {
       if (content) {
@@ -196,4 +222,5 @@ export class CustomAppComponent {
       }
     });
   }
+
 }

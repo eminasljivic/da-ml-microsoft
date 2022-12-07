@@ -1,9 +1,11 @@
 \setauthor{Emina Sljivic}
 \section{Ausgangssituation}
 
-Als Mitglied der weltweiten Bechtle Gruppe stellt smartpoint IT consulting kundenspezifische Softwarelösungen im Bereich Office365, SharePoint und Dynamics 365/CRM bereit. Mit Standorten in Linz, Wien und Graz beschäftigt das Unternehmen über 100 Mitarbeiter, die mit laufenden Weiterbildungen immer auf dem neusten Stand der Technologie bleiben und dafür für das optimale Ergebnis sorgen.
+Als Mitglied der weltweiten Bechtle Gruppe stellt smartpoint IT consulting kundenspezifische Softwarelösungen im Bereich Office365, SharePoint und Dynamics 365/CRM bereit. Mit Standorten in Linz, Wien und Graz beschäftigt das Unternehmen über 100 Mitarbeiter, die mit laufenden Weiterbildungen immer auf dem neuesten Stand der Technologien bleiben und somit für das optimale Ergebnis sorgen.
 
-Zusammen mit zahlreichen, namenhaften Unternehmen aus vielen unterschiedlichen Branchen werden seit 2007 Projekte gestartet, die noch bis heute laufen. Dabei bieten sie in allen Phasen der Projektentwicklung Unterstützung an, mit einer Spezialisierung auf Cloudlösungen. Dazu wird die User Experience und das Design auf keiner Weise vernachlässigt.
+Zusammen mit zahlreich namhaften Unternehmen aus vielen unterschiedlichen Branchen werden seit 2007 Projekte gestartet, die noch bis heute laufen. Dabei bieten sie in allen Phasen der Projektentwicklung Unterstützung an, mit einer Spezialisierung auf Cloudlösungen. Dazu wird die User Experience und das Design auf keinster Weise vernachlässigt.
+
+Unter anderem bietet smartpoint folgende Dienstleistungen an:
 
 \begin{itemize}
     \item Beratung
@@ -12,16 +14,32 @@ Zusammen mit zahlreichen, namenhaften Unternehmen aus vielen unterschiedlichen B
     \item Betreuung der Systeme
 \end{itemize}
 
-Obwohl die Welt um den Bereich Künstliche Intelligenz immer größer und wichtiger wird, wird sie nur wenig in smartpoints Projekte eingebaut und daher sich auch nur wenig bis keine Erfahrungen im Bereich Künstliche Intelligenz vorhanden.
+Obwohl die Welt um den Bereich Künstliche Intelligenz immer größer und wichtiger wird, wird sie nur wenig in smartpoints Projekte eingebaut und daher sind auch nur wenig bis keine Erfahrungen im Bereich Künstliche Intelligenz vorhanden.
 
 \section{Istzustand}
 
-Momentan wird bei der Konzeptionierung von Projekten mehr auf logische Abfolgen Wert gelegt anstatt auf die Nutzung von Künstlichen Intelligenzen. Wird jedoch eine Künstliche Intelligenz benötigt, greift man auf die bereits vorimplementierten Produkte von Microsoft wie Power Automate und dem AI Chatbot.
+Momentan wird bei der Konzeptionierung von Projekten mehr auf logische Abfolgen Wert gelegt anstatt auf die Nutzung von Künstlichen Intelligenzen. Wird jedoch eine Künstliche Intelligenz benötigt, greift man auf die bereits vorimplementierten Produkte von Microsoft wie Power Automate und dem AI Chatbot zurück. 
 
-\section{Problemstellung}
 \section{Ziele}
+
+Um in Zukunft das Potential von Cloud-basierten Softwarelösungen in Microsoft Azure in Kombination mit Künstlicher Intelligenz besser ausschöpfen zu können, soll im Rahmen der Diplomarbeit eine Gegenüberstellung von verschiedenen Möglichkeiten ausgearbeitet werden. Dabei sollen sowohl Low-Code-Lösungen (AI Builder, Cognitive Services) als auch eigene Implementierungen mit Python als Azure Functions sowie deren Anbindung an andere Systeme (z.B. Dynamics 365) getestet werden. 
+
+Aufgrund von organisatorischen Differenzen wurde die Diplomarbeit in zwei Teile geteilt, wobei die Implementierungen mit Python als Azure Function in diesem Teil behandelt wird.
+
 \section{Aufgabenstellung}
-\subsection{Funktionale Anforderungen}
-\subsection{Nicht funktionale Anforderungen}
-\section{Systemarchitektur}
-\section{Ablauf}
+
+Da es sich um eine theoretische Situation handelt, wurde zusammen mit dem Projektpartner ein für das Unternehmen relevantes Szenario ausgearbeitet. Dabei handelt es sich um das Verarbeiten von externen Rechnungen, wobei folgende Felder ausgelesen werden müssen:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|p{0.7\linewidth}|}
+    \hline
+    Unternehmens Name    & Der Name des Unternehmens, das die Rechnung ausstellt                         \\ \hline
+    Unternehmens Adresse & Die Adresse des Unternehmens, das die Rechnung ausstellt                      \\ \hline
+    Rechnungs Id         & Eine eindeutige Nummer, die einer Rechnung zugewiesen ist                     \\ \hline
+    Rechnungs Datum      & Das Datum, an dem die Rechnung ausgestellt wurde                               \\ \hline
+    Gesamtbetrag         & Der Gesamtbetrag der Rechnung                                                 \\ \hline
+    Rechnungszeilen      & Jedes Produkt oder jede Dienstleistung, die in der Rechnung aufgelistet wurde (inklusive Beschreibung, Anzahl, Stückpreis und Gesamtpreis)\\ \hline
+    \end{tabular}
+    \caption{Geforderten Felder beim Auslesen einer Rechnung}
+\end{table}

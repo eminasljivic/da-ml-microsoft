@@ -2,9 +2,11 @@ from pdf2image import convert_from_path
 import numpy as np
 import pytesseract
 from pytesseract import Output
+import cv2
 
 class BoundingBoxes:
-    def get_bounding_boxes_from_img(self, img, min_text_height_limit=6, max_text_height_limit=40):
+    def get_bounding_boxes_from_img(self, img, min_text_height_limit=6, max_text_height_limit=40, dist_limit = 10, cell_threshold=50):
+        img = self.pre_process_image(img)
         boxes = []
 
         d = pytesseract.image_to_data(img, output_type=Output.DICT)
@@ -14,13 +16,17 @@ class BoundingBoxes:
             if min_text_height_limit < h < max_text_height_limit and d['text'][i].strip():
                 boxes.append([x, y, w, h, text])
 
-        return self.__merge(boxes)
-
-    def get_bounding_boxes_from_pdf(self, filePath, min_text_height_limit=6, max_text_height_limit=40):
-        pages = convert_from_path(filePath)
-        img = np.array(pages[0])
-
-        self.get_bounding_boxes_from_img(img, min_text_height_limit, max_text_height_limit)
+        return self.__merge(boxes, dist_limit=dist_limit, cell_threshold= cell_threshold)
+    
+    def pre_process_image(self, img, morph_size=(1, 1)):
+        pre = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        pre = cv2.threshold(pre, 240, 255, cv2.THRESH_BINARY)[1]
+        # dilate the text to make it solid spot
+        cpy = pre.copy()
+        struct = cv2.getStructuringElement(cv2.MORPH_RECT, morph_size)
+        cpy = cv2.dilate(~cpy, struct, anchor=(-1, -1), iterations=1)
+        pre = ~cpy
+        return pre
 
     #Generate two text boxes a larger one that covers them
     def __merge_boxes(self, box1, box2):
@@ -62,3 +68,4 @@ class BoundingBoxes:
                 else:
                     i += 1
         return [item for sublist in list(rows.values()) for item in sublist]
+

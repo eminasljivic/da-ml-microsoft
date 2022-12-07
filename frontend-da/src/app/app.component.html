@@ -2,7 +2,11 @@
   <mat-toolbar color="primary">
       <span>Machine Learning In Microsoft Azure - Ein Vergleich</span>
       <span class="spacer"></span>
-      <button mat-button [routerLink]="'/custom'">Custom</button>
+      <button mat-button [matMenuTriggerFor]="customMenu">Custom</button>
+      <mat-menu #customMenu="matMenu">
+        <button mat-menu-item [routerLink]="'/annotation-tool'" >NER Annotations Tool</button>
+        <button mat-menu-item [routerLink]="'/custom'">Invoice Reader</button>
+      </mat-menu>
       <button mat-button [routerLink]="'/comparison'">Comparison</button>
       <button mat-button [routerLink]="'/dashboard'">Dashboard</button>
     </mat-toolbar>

@@ -61,7 +61,7 @@ Diese Art von Lernen kann man in zwei Typen aufteilen:
 \end{figure}
 % https://aleenamishra10.medium.com/handwritten-digit-recognition-using-machine-learning-f6a08761ff83
 
-Zu diesen ''überwachten'' Algorithmen gehören Lineare Diskriminanzanalysen, Support Vector Machines (SVM), Random Forests und Entscheidungsbäume.\cite{SL:online}
+Zu diesen ''überwachten'' Algorithmen gehören Lineare Diskriminanzanalysen, Support Vector Machines (SVM), Random Forests und Entscheidungsbäume. \cite{SL:online}
 
 \subparagraph{Entscheidungsbäume} (Decision Trees) sind eine hierarchische Abfolge von Bedingungen und sind vergleichbar mit verschachtelten if/else-Statements. Dabei beginnt der Entscheidungsbaum mit einer Bedingung, die auch als ''Root-Node'' bezeichnet wird, worauf im Normalfall weitere Bedingungen folgen. Die Blätter dieser Pfade spiegeln die Gruppen oder Klassifizierungen wieder und sind nur über mehrere Pfade erreichbar.
 
@@ -77,7 +77,7 @@ In diesem Beispiel sieht dieser Entscheidungsbaum noch sehr lesbar aus, jedoch �
 
 Fasst man mehrere Entscheidungsbäume zusammen, entsteht ein Random Forest, wobei jeder Entscheidungsbaum nur bestimmte Spalten/Merkmale zugeteilt bekommt. Soll ein neuer Datensatz kategorisiert werden, entscheidet die Mehrheit jener Ergebnisse der Entscheidungsbäume, zu welcher Gruppe dieser Datensatz dazugehört.
 
-\paragraph{Regressionen,} Erstellung einer kontinuierlichen Funktion mithilfe von Werten, die auf oder nahe an der Funktion liegen, sind hilfreich, wenn anstatt diskreten kontinuierlichen Werte, wie zum Beispiel die Größe einer Person, festgestellt werden sollen. Dazu gehören lineare Regressionen und polynominale Regression.
+\paragraph{Regressionen} Unter Regressionen versteht man die Erstellung einer kontinuierlichen Funktion mithilfe von Werten, die auf oder nahe an der Funktion liegen. Sie sind hilfreich, wenn anstatt diskreten kontinuierlichen Werte, wie zum Beispiel die Größe einer Person, festgestellt werden sollen. Dazu gehören lineare Regressionen und polynominale Regression.
 
 \subsubsection{Unsupervised Learning}
 
@@ -93,9 +93,9 @@ Beim Unsupervised Learning oder unüberwachtes Lernen werden Verbindungen ohne g
 \end{figure}
 %https://datascience.eu/de/maschinelles-lernen/clustering-algorithmen-und-ihre-bedeutung-beim-maschinellen-lernen-2/
 
-Auch für das menschliche Auge ist es möglich, dieses Beispiel (Abbildung \ref{fig:unclustered-data}) in Haufen oder Klumpen zusammenzufassen, genau das gleiche macht ein Programm mit Clustern. Die Interpretation dieser Gruppen muss jedoch wieder durch Menschen erfolgen, da ein Computer nicht im Stande dazu ist, diese Cluster einer Kategorie zuzuteilen.
+Auch für das menschliche Auge ist es möglich, dieses Beispiel (Abbildung \ref{fig:unclustered-data}) in Haufen oder Klumpen zusammenzufassen, genau das gleiche macht ein Programm mit Clustern. Die Interpretation dieser Gruppen muss jedoch wieder durch Menschen erfolgen, da ein Computer nicht im Stande dazu ist, diese Cluster einer Kategorie zuzuordnen.
 
-Diese Vorgehensweise wird oft in sehr komplizierte Einsatzbereiche genutzt und daher ist es sehr schwer, differenzierbare Cluster zu erstellen. Der Prozess, solche Cluster zu definieren, basiert darauf, die Punkte so zu gruppieren, dass der Abstand in diesem Cluster klein ist und zu anderen Clustern groß.
+Diese Vorgehensweise wird oft in sehr komplizierte Einsatzbereiche genutzt und daher ist es sehr schwer, differenzierbare Cluster zu erstellen. Der Prozess, solche Cluster zu definieren, basiert darauf, die Punkte so zu gruppieren, dass der Abstand in diesem Cluster klein und zu anderen Clustern groß ist.
 
 \begin{figure}[H]
       \centering
@@ -106,8 +106,8 @@ Diese Vorgehensweise wird oft in sehr komplizierte Einsatzbereiche genutzt und d
 
 \subsubsection{Reinforcement Learning}
 
-Das Reinforcement Learning oder das beschränkte/verstärkte Lernen wird oft mit dem Konzept ''Learning by doing'' verglichen, da es sich weniger auf das Ergebnis fokussiert und mehr auf Aktionen oder Vorgängen. Ein Beispiel für diese Vorgehensweise aus der Sicht eines Schülers ist das Üben vor einer Matheschularbeit. Wird während dem Üben ein Fehler gemacht, merkt man sich das Problem und passt sein Verhalten / seinen Rechenweg so an, dass dieser Fehler nicht mehr vorkommt. Diesen Vorgang nennt man auch negative Verstärkung. \cite{SL:online}
+Das Reinforcement Learning oder das beschränkte/verstärkte Lernen wird oft mit dem Konzept ''Learning by doing'' verglichen, da es sich weniger auf das Ergebnis fokussiert und mehr auf Aktionen oder Vorgängen. Ein Beispiel für diese Vorgehensweise aus der Sicht eines Schülers ist das Üben vor einer Matheschularbeit. Wird während dem Üben ein Fehler gemacht, merkt man sich das Problem und passt sein Verhalten bzw. seinen Rechenweg so an, dass dieser Fehler nicht mehr vorkommt. Diesen Vorgang nennt man auch negative Verstärkung. \cite{SL:online}
 
-Dahingegen führen richtige Ergebnisse oder erwartete Reaktionen zu positiven Verstärkungen und man versucht dieses Verhalten zu wiederholen.
+Dahingegen führen richtige Ergebnisse oder erwartete Reaktionen zu positiven Verstärkungen und man versucht, dieses Verhalten zu wiederholen.
 
 Durch negative und positive Verstärkungen wird das Verhalten verbessert, um den besten Weg zum Ziel zu finden. Bei komplexen Systemen kann dies selbstständig vom Programm gemacht werden, jedoch bei simpleren kann es geschehen, dass ein unnötig komplizierter Weg gefunden wird. In diesen Fällen schaut ein Supervisor dem Programm ''über die Schulter''.

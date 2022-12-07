@@ -10,7 +10,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { MatTabsModule } from '@angular/material/tabs';
 import {HttpClientModule} from "@angular/common/http";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {CustomAppComponent} from './custom-app/custom-app.component';
+import {AnnotationToolComponent} from './annotation-tool/annotation-tool.component';
 import {ComparisonComponent} from './comparison/comparison.component';
 import {MatIconModule} from "@angular/material/icon";
 import {CommonModule} from "@angular/common";
@@ -25,14 +25,17 @@ import {MatInputModule} from "@angular/material/input";
 import {MatTableModule} from "@angular/material/table";
 import {MatDialogModule} from '@angular/material/dialog';
 import { DataService } from './core/service/data.service';
+import { InvoiceReaderCustomComponent } from './invoice-reader-custom/invoice-reader-custom.component';
+import {MonacoEditorModule} from "ngx-monaco-editor";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomAppComponent,
+    AnnotationToolComponent,
     ComparisonComponent,
-    MetricDashboardComponent
+    MetricDashboardComponent,
+    InvoiceReaderCustomComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { DataService } from './core/service/data.service';
     MatTabsModule,
     MatTableModule,
     MatDialogModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

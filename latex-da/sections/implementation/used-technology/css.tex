@@ -28,7 +28,7 @@ Beispiele für gültige Properties:
     \begin{tabular}{|l|l|p{0.5\linewidth}|}
         \hline
         \lstinline|width/height|  & \lstinline|100px| / \lstinline|100%| & Gibt die Breite/Höhe eines HTML-Elements an (als Länge oder Prozentzahl) \\ \hline
-        \lstinline|display|  & \lstinline|block| / \lstinline|flex| & Gibt an wie die HTML-Elemente angezeigt werden                           \\ \hline
+        \lstinline|display|  & \lstinline|block| / \lstinline|flex| & Gibt an, wie die HTML-Elemente angezeigt werden                           \\ \hline
         \lstinline|margin/padding|  & \lstinline|10px |                          & Gibt den inneren/äußeren Abstand an                                      \\ \hline
         \lstinline|background| & \lstinline|#fff|                         & Gibt die Farbe/das Bild für den Hintergrund an                           \\ \hline
         \lstinline|color| & \lstinline|red|                         & Gibt die Farbe/Strichstärke an                                           \\ \hline
@@ -39,7 +39,7 @@ Beispiele für gültige Properties:
 Um die Struktur mit dem Styling zu verbinden, bietet \gls{html} drei Möglichkeiten an: \cite{CSS}
 
 \begin{itemize}
-    \item Direkt im \gls{html}-File innerhalb vom \lstinline{<head>}-Tag, mithilfe von einem \lstinline{<style>}-Tag.
+    \item Direkt im \gls{html}-File innerhalb vom \lstinline{<head>}-Tag mithilfe von einem \lstinline{<style>}-Tag.
 
           \begin{lstlisting}[language=HTML,numbers=none]
 <head>
@@ -83,8 +83,8 @@ Um diese Spezifikation noch genauer zu definieren, können Selektoren mit unters
     \begin{tabular}{|l|l|p{0.4\linewidth}|}
         \hline
         \lstinline|,|      & \lstinline|h1, p| & Selektiert alle \lstinline|<p>| und \lstinline|<h1>|-Elemente                                \\ \hline
-        '' '' (Leerzeichen)          & \lstinline|div p| & Selektiert alle \lstinline|<p>|-Elemente in einem \lstinline|<div>|-Elemente                  \\ \hline
-        \lstinline|>|      & \lstinline|div > p| & Selektiert alle \lstinline|<p>|-Elemente, die direkt in einem \lstinline|<div>|-Elemente sind \\ \hline
+        '' '' (Leerzeichen)          & \lstinline|div p| & Selektiert alle \lstinline|<p>|-Elemente in einem \lstinline|<div>|-Element                  \\ \hline
+        \lstinline|>|      & \lstinline|div > p| & Selektiert alle \lstinline|<p>|-Elemente, die direkt in einem \lstinline|<div>|-Element sind \\ \hline
         (2 Selektoren ohne Operator) & \lstinline|div.main| & Selektiert alle \lstinline|<div>|-Element, die auch die Klasse \lstinline|.main| haben          \\ \hline
     \end{tabular}
     \caption{CSS-Operatoren}
@@ -92,7 +92,7 @@ Um diese Spezifikation noch genauer zu definieren, können Selektoren mit unters
 
 \paragraph{SCSS}
 
-Da die Funktionalitäten von \gls{css} sehr eingeschränkt sind, wird oftmals als Weiterentwicklung \gls{scss} genutzt. Dies ermöglicht das Vereinfachen von Regeln und macht diese generell besser überschaubar.
+Da die Funktionalitäten von \gls{css} sehr eingeschränkt sind, wird oftmals als Weiterentwicklung \gls{scss} genutzt. Dies ermöglicht das Vereinfachen von Regeln und macht diese generell überschaubarer.
 
 Zusätzlich zu den normalen Funktionen von \gls{css} stellt \gls{scss} zum Beispiel folgende zur Verfügung: \cite{SCSS}
 

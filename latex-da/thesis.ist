@@ -1,9 +1,5 @@
 % makeindex style file created by the glossaries package
-% for document 'thesis' on 2022-11-30
-<<<<<<< HEAD:latex_da/thesis.ist
-=======
-% for document 'thesis' on 2022-11-24
->>>>>>> 5ddae38bf08a507deac313976b6b8930f8ce55b8:latex-da/thesis.ist
+% for document 'thesis' on 2022-12-7
 actual '?'
 encap '|'
 level '!'

@@ -2,7 +2,7 @@ import {BoundingBox} from './bounding-box';
 
 export class Field {
   constructor(
-    public boundingBox: BoundingBox,
+    public boundingBoxes: BoundingBox[],
     public fieldContent: string,
     public fieldName: string = '') {
   }
